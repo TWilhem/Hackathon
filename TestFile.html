@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage des données JSON</title>
+    <script>
+        async function loadJSON() {
+            const response = await fetch('FR9101434.json'); // Assurez-vous que le fichier est accessible
+            const data = await response.json();
+            
+            document.getElementById('site-name').innerText = data.SITE_NAME;
+            document.getElementById('region').innerText = data.REG;
+            document.getElementById('longitude').innerText = data.LONGITUDE;
+            document.getElementById('latitude').innerText = data.LATITUDE;
+            
+            const activities = data.ACTVTY.ACTVTY_ROW;
+            let activitiesHTML = "<ul>";
+            activities.forEach(activity => {
+                activitiesHTML += `<li>${activity.DESCRIPT_FR} (Code: ${activity.ACT_CODE})</li>`;
+            });
+            activitiesHTML += "</ul>";
+            document.getElementById('activities').innerHTML = activitiesHTML;
+        }
+        
+        window.onload = loadJSON;
+    </script>
+</head>
+<body>
+    <h1>Informations sur le site</h1>
+    <p><strong>Nom du site :</strong> <span id="site-name"></span></p>
+    <p><strong>Région :</strong> <span id="region"></span></p>
+    <p><strong>Longitude :</strong> <span id="longitude"></span></p>
+    <p><strong>Latitude :</strong> <span id="latitude"></span></p>
+    
+    <h2>Activités</h2>
+    <div id="activities"></div>
+</body>
+</html>
