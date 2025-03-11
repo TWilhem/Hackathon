@@ -14,13 +14,23 @@
             document.getElementById('longitude').innerText = data.LONGITUDE;
             document.getElementById('latitude').innerText = data.LATITUDE;
             
-            const activities = data.ACTVTY.ACTVTY_ROW;
-            let activitiesHTML = "<ul>";
-            activities.forEach(activity => {
-                activitiesHTML += `<li>${activity.DESCRIPT_FR} (Code: ${activity.ACT_CODE})</li>`;
-            });
-            activitiesHTML += "</ul>";
-            document.getElementById('activities').innerHTML = activitiesHTML;
+            function generateTable(id, rows, columns) {
+                let tableHTML = "<table border='1'><tr>";
+                columns.forEach(col => tableHTML += `<th>${col}</th>`);
+                tableHTML += "</tr>";
+                rows.forEach(row => {
+                    tableHTML += "<tr>";
+                    columns.forEach(col => tableHTML += `<td>${row[col] || ''}</td>`);
+                    tableHTML += "</tr>";
+                });
+                tableHTML += "</table>";
+                document.getElementById(id).innerHTML = tableHTML;
+            }
+            
+            if (data.ACTVTY) generateTable('activities', data.ACTVTY.ACTVTY_ROW, ['DESCRIPT_FR', 'ACT_CODE', 'INTENSITY']);
+            if (data.COMMUNES) generateTable('communes', data.COMMUNES.COMMUNES_ROW, ['LB_ADM', 'STATUT']);
+            if (data.HABIT1) generateTable('habitats', data.HABIT1.HABIT1_ROW, ['LB_HABDH_FR', 'CD_UE', 'COVER']);
+            if (data.SPECIES_OTHER) generateTable('species', data.SPECIES_OTHER.SPECIES_OTHER_ROW, ['LB_NOM', 'TAXGROUP', 'CAT_MOTIV']);
         }
         
         window.onload = loadJSON;
@@ -35,5 +45,14 @@
     
     <h2>Activités</h2>
     <div id="activities"></div>
+    
+    <h2>Communes</h2>
+    <div id="communes"></div>
+    
+    <h2>Habitats</h2>
+    <div id="habitats"></div>
+    
+    <h2>Espèces</h2>
+    <div id="species"></div>
 </body>
 </html>
