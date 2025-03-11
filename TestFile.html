@@ -9,50 +9,63 @@
             const response = await fetch('FR9101434.json'); // Assurez-vous que le fichier est accessible
             const data = await response.json();
             
-            document.getElementById('site-name').innerText = data.SITE_NAME;
-            document.getElementById('region').innerText = data.REG;
-            document.getElementById('longitude').innerText = data.LONGITUDE;
-            document.getElementById('latitude').innerText = data.LATITUDE;
-            
-            function generateTable(id, rows, columns) {
-                let tableHTML = "<table border='1'><tr>";
-                columns.forEach(col => tableHTML += `<th>${col}</th>`);
-                tableHTML += "</tr>";
-                rows.forEach(row => {
-                    tableHTML += "<tr>";
-                    columns.forEach(col => tableHTML += `<td>${row[col] || ''}</td>`);
-                    tableHTML += "</tr>";
+            function displayData(obj, parent) {
+                Object.keys(obj).forEach(key => {
+                    if (Array.isArray(obj[key])) {
+                        parent.innerHTML += `<h3>${key}</h3>`;
+                        generateTable(parent, obj[key]);
+                    } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+                        parent.innerHTML += `<h3>${key}</h3>`;
+                        const subDiv = document.createElement('div');
+                        displayData(obj[key], subDiv);
+                        parent.appendChild(subDiv);
+                    } else {
+                        parent.innerHTML += `<p><strong>${key}:</strong> ${obj[key]}</p>`;
+                    }
                 });
-                tableHTML += "</table>";
-                document.getElementById(id).innerHTML = tableHTML;
             }
             
-            if (data.ACTVTY) generateTable('activities', data.ACTVTY.ACTVTY_ROW, ['DESCRIPT_FR', 'ACT_CODE', 'INTENSITY']);
-            if (data.COMMUNES) generateTable('communes', data.COMMUNES.COMMUNES_ROW, ['LB_ADM', 'STATUT']);
-            if (data.HABIT1) generateTable('habitats', data.HABIT1.HABIT1_ROW, ['LB_HABDH_FR', 'CD_UE', 'COVER']);
-            if (data.SPECIES_OTHER) generateTable('species', data.SPECIES_OTHER.SPECIES_OTHER_ROW, ['LB_NOM', 'TAXGROUP', 'CAT_MOTIV']);
+            function generateTable(parent, rows) {
+                if (rows.length === 0) return;
+                const table = document.createElement('table');
+                table.border = '1';
+                const thead = document.createElement('thead');
+                const tbody = document.createElement('tbody');
+                
+                const headers = Object.keys(rows[0]);
+                const headRow = document.createElement('tr');
+                headers.forEach(header => {
+                    const th = document.createElement('th');
+                    th.textContent = header;
+                    headRow.appendChild(th);
+                });
+                thead.appendChild(headRow);
+                
+                rows.forEach(row => {
+                    const tr = document.createElement('tr');
+                    headers.forEach(header => {
+                        const td = document.createElement('td');
+                        td.textContent = row[header] || '';
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+                
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                parent.appendChild(table);
+            }
+            
+            const container = document.getElementById('data-container');
+            container.innerHTML = '';
+            displayData(data, container);
         }
         
         window.onload = loadJSON;
     </script>
 </head>
 <body>
-    <h1>Informations sur le site</h1>
-    <p><strong>Nom du site :</strong> <span id="site-name"></span></p>
-    <p><strong>Région :</strong> <span id="region"></span></p>
-    <p><strong>Longitude :</strong> <span id="longitude"></span></p>
-    <p><strong>Latitude :</strong> <span id="latitude"></span></p>
-    
-    <h2>Activités</h2>
-    <div id="activities"></div>
-    
-    <h2>Communes</h2>
-    <div id="communes"></div>
-    
-    <h2>Habitats</h2>
-    <div id="habitats"></div>
-    
-    <h2>Espèces</h2>
-    <div id="species"></div>
+    <h1>Informations du fichier JSON</h1>
+    <div id="data-container"></div>
 </body>
 </html>
