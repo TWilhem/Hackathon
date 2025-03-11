@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maison des Orpellière</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="./actualite.html">Actualités</a></li>
+          <li><a href="./biodiversite.htm">Biodiversité</a></li>
+          <a href="./index.html"
+            ><div class="logo"><img src="./assets/logo.png" alt="" /></div
+          ></a>
+          <li><a href="./galerie.html">Galerie</a></li>
+          <li><a href="./documentation.html">Documentations</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero-banner">
+      <video autoplay muted loop id="hero-video">
+        <source src="./assets/video.MP4" type="video/mp4" />
+        Votre navigateur ne supporte pas les vidéos.
+      </video>
+    </section>
+
+    <section id="a-propos">
+      <h2>A propos</h2>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <img src="./assets/img-dune.jpg" alt="Dunes et nature" />
+      </div>
+      <div class="content">
+        <img src="./assets/img-ciel.jpg" alt="Paysage" />
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
+          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
+          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
+          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
+          qui dolorem eum fugiat quo voluptas nulla pariatur?
+        </p>
+      </div>
+    </section>
+
+    <section id="reglementation">
+      <h2 style="padding-bottom: 50px">Règlementation</h2>
+      <div class="icons-grid">
+        <div class="icon-item">
+          <img src="./assets/icon1.png" alt="Interdit de nourrir les animaux" />
+          <p>Uniquement sur les sentiers</p>
+        </div>
+        <div class="icon-item">
+          <img
+            src="./assets/icon2.png"
+            alt="Interdit aux véhicules motorisés"
+          />
+          <p>Interdit aux véhicules motorisés</p>
+        </div>
+        <div class="icon-item">
+          <img src="./assets/icon3.png" alt="Chiens interdits" />
+          <p>Camping sauvage interdit</p>
+        </div>
+        <div class="icon-item">
+          <img src="./assets/icon4.png" alt="Feu interdit" />
+          <p>Pas de musique forte</p>
+        </div>
+        <div class="icon-item">
+          <img src="./assets/icon5.png" alt="Camping interdit" />
+          <p>Chien interdit du 15 mars au 14 septembre</p>
+        </div>
+        <div class="icon-item">
+          <img src="./assets/icon6.png" alt="Pas de musique forte" />
+          <p>Feu interdit</p>
+        </div>
+        <div class="icon-item">
+          <img src="./assets/icon7.png" alt="Ne pas jeter de déchets" />
+          <p>Ne pas jeter de déchets</p>
+        </div>
+        <div class="icon-item">
+          <img src="./assets/icon8.png" alt="Cueillette interdite" />
+          <p>Cueillette interdite</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="img-logo">
+        <nav>
+          <ul>
+            <li><a href="./actualite.html">Actualités</a></li>
+            <li><a href="./biodiversite.htm">Biodiversité</a></li>
+            <li><a href="./galerie.html">Galerie</a></li>
+            <li><a href="./documentation.html">Documentations</a></li>
+          </ul>
+        </nav>
+        <a href="./index.html"
+          ><img style="width: 190px" src="./assets/logo.png" alt=""
+        /></a>
+      </div>
+      <hr />
+      <div class="partners">
+        <img src="./assets/logo-ue-occ.jpg" alt="" />
+        <img src="./assets/logo-occ.png" alt="" />
+        <img src="./assets/logo-natura.jpg" alt="" />
+      </div>
+    </footer>
+    <script>
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 250) {
+          header.classList.add("scroll-active");
+          nav.classList.add("scroll-active-nav");
+        } else {
+          header.classList.remove("scroll-active");
+        }
+      });
+    </script>
+  </body>
+</html>
