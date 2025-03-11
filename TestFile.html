@@ -11,10 +11,12 @@
             
             function displayData(obj, parent) {
                 Object.keys(obj).forEach(key => {
+                    if (obj[key] === null || obj[key] === undefined || obj[key] === "") return;
+                    
                     if (Array.isArray(obj[key])) {
                         parent.innerHTML += `<h3>${key}</h3>`;
                         generateTable(parent, obj[key]);
-                    } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+                    } else if (typeof obj[key] === 'object') {
                         parent.innerHTML += `<h3>${key}</h3>`;
                         const subDiv = document.createElement('div');
                         displayData(obj[key], subDiv);
@@ -32,7 +34,7 @@
                 const thead = document.createElement('thead');
                 const tbody = document.createElement('tbody');
                 
-                const headers = Object.keys(rows[0]);
+                const headers = Object.keys(rows[0]).filter(header => rows.some(row => row[header] !== null && row[header] !== undefined && row[header] !== ""));
                 const headRow = document.createElement('tr');
                 headers.forEach(header => {
                     const th = document.createElement('th');
