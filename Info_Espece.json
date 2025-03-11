@@ -1,0 +1,497 @@
+{
+    "HABIT1": {
+        "HABIT1_ROW": [
+            {
+                "LB_HABDH_FR": "Lagunes côtières",
+                "COVER": ",7",
+                "REPRESENT": "C",
+                "REL_SURF": "C",
+                "CONSERVE": "B",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Végétation annuelle des laissés de mer",
+                "COVER": ",07",
+                "REPRESENT": "B",
+                "REL_SURF": "C",
+                "CONSERVE": "A",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Végétations pionnières à Salicornia et autres espèces annuelles des zones boueuses et sableuses",
+                "COVER": "12,24",
+                "REPRESENT": "B",
+                "REL_SURF": "C",
+                "CONSERVE": "A",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Prés-salés méditerranéens (Juncetalia maritimi)",
+                "COVER": "24,55",
+                "REPRESENT": "B",
+                "REL_SURF": "C",
+                "CONSERVE": "B",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Fourrés halophiles méditerranéens et thermo-atlantiques (Sarcocornietea fruticosi)",
+                "COVER": "29,37",
+                "REPRESENT": "B",
+                "REL_SURF": "C",
+                "CONSERVE": "A",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Steppes salées méditerranéennes (Limonietalia)",
+                "COVER": "1",
+                "REPRESENT": "D",
+                "REL_SURF": null,
+                "CONSERVE": null,
+                "GLOBAL": null,
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Dunes mobiles embryonnaires",
+                "COVER": ",21",
+                "REPRESENT": "B",
+                "REL_SURF": "C",
+                "CONSERVE": "B",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Dunes mobiles du cordon littoral à Ammophila arenaria (dunes blanches)",
+                "COVER": "1,68",
+                "REPRESENT": "B",
+                "REL_SURF": "C",
+                "CONSERVE": "A",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Dunes fixées du littoral du Crucianellion maritimae",
+                "COVER": "3,43",
+                "REPRESENT": "B",
+                "REL_SURF": "C",
+                "CONSERVE": "B",
+                "GLOBAL": "B",
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Forêts-galeries à Salix alba et Populus alba",
+                "COVER": "0",
+                "REPRESENT": "D",
+                "REL_SURF": null,
+                "CONSERVE": null,
+                "GLOBAL": null,
+                "QUALITY": "G"
+            },
+            {
+                "LB_HABDH_FR": "Galeries et fourrés riverains méridionaux (Nerio-Tamaricetea et Securinegion tinctoriae)",
+                "COVER": "1,54",
+                "REPRESENT": "D",
+                "REL_SURF": null,
+                "CONSERVE": null,
+                "GLOBAL": null,
+                "QUALITY": "G"
+            }
+        ]
+    },
+    "HABIT2": {
+        "HABIT2_ROW": [
+            {
+                "COVER": "35",
+                "DESCRIPTFR": "Marais salants, Prés salés, Steppes salées"
+            },
+            {
+                "COVER": "15",
+                "DESCRIPTFR": "Dunes, Plages de sables, Machair"
+            },
+            {
+                "COVER": "50",
+                "DESCRIPTFR": "Prairies semi-naturelles humides, Prairies mésophiles améliorées"
+            }
+        ]
+    },
+    "SPECIES_OTHER": {
+        "SPECIES_OTHER_ROW": [
+            {
+                "TAXGROUP": "A",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Pelodytes punctatus"
+            },
+            {
+                "TAXGROUP": "A",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "D",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "true",
+                "LB_NOM": "Bufo calamita"
+            },
+            {
+                "TAXGROUP": "A",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Hyla meridionalis"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Egretta garzetta"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Milvus migrans"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": "1",
+                "UNIT": "p",
+                "CAT_POP": "P",
+                "CAT_MOTIV": "A-C-E",
+                "A": "true",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Tetrax tetrax"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": "5",
+                "UNIT": "p",
+                "CAT_POP": "P",
+                "CAT_MOTIV": "A-C-E",
+                "A": "true",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Himantopus himantopus"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": "5",
+                "UNIT": "p",
+                "CAT_POP": "P",
+                "CAT_MOTIV": "A-C-E",
+                "A": "true",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Charadrius alexandrinus"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "D",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "true",
+                "LB_NOM": "Larus melanocephalus"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "E",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "false",
+                "LB_NOM": "Larus genei"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "A-E",
+                "A": "true",
+                "B": "false",
+                "C": "false",
+                "D": "false",
+                "LB_NOM": "Sterna sandvicensis"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "A-C-E",
+                "A": "true",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Sterna hirundo"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Clamator glandarius"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Merops apiaster"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Upupa epops"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": "2",
+                "UNIT": "p",
+                "CAT_POP": "P",
+                "CAT_MOTIV": "A-C-E",
+                "A": "true",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Calandrella brachydactyla"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": "1",
+                "UNIT": "p",
+                "CAT_POP": "P",
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Lullula arborea"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": "6",
+                "UNIT": "p",
+                "CAT_POP": "P",
+                "CAT_MOTIV": "C",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Anthus campestris"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "A",
+                "A": "true",
+                "B": "false",
+                "C": "false",
+                "D": "false",
+                "LB_NOM": "Acrocephalus arundinaceus"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "A-C-E",
+                "A": "true",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Sylvia conspicillata"
+            },
+            {
+                "TAXGROUP": "B",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "A-C",
+                "A": "true",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Lanius senator"
+            },
+            {
+                "TAXGROUP": "I",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "C-E",
+                "A": "false",
+                "B": "false",
+                "C": "true",
+                "D": "false",
+                "LB_NOM": "Zerynthia polyxena"
+            },
+            {
+                "TAXGROUP": "I",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "D",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "true",
+                "LB_NOM": "Calephorus compressicornis"
+            },
+            {
+                "TAXGROUP": "I",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "V",
+                "CAT_MOTIV": "E",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "false",
+                "LB_NOM": "Xerosecta explanata"
+            },
+            {
+                "TAXGROUP": "I",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "P",
+                "CAT_MOTIV": "D",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "true",
+                "LB_NOM": "Cylindera trisignata"
+            },
+            {
+                "TAXGROUP": "I",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "R",
+                "CAT_MOTIV": "D",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "true",
+                "LB_NOM": "Camptopoeum nasutum"
+            },
+            {
+                "TAXGROUP": "P",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "R",
+                "CAT_MOTIV": "A-E",
+                "A": "true",
+                "B": "false",
+                "C": "false",
+                "D": "false",
+                "LB_NOM": "Euphorbia peplis"
+            },
+            {
+                "TAXGROUP": "P",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "R",
+                "CAT_MOTIV": "D",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "true",
+                "LB_NOM": "Limonium ferulaceum"
+            },
+            {
+                "TAXGROUP": "P",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "R",
+                "CAT_MOTIV": "B-E",
+                "A": "false",
+                "B": "true",
+                "C": "false",
+                "D": "false",
+                "LB_NOM": "Limonium legrandii"
+            },
+            {
+                "TAXGROUP": "P",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": "V",
+                "CAT_MOTIV": "A",
+                "A": "true",
+                "B": "false",
+                "C": "false",
+                "D": "false",
+                "LB_NOM": "Medicago ciliaris"
+            },
+            {
+                "TAXGROUP": "R",
+                "SIZE_MAX": null,
+                "UNIT": null,
+                "CAT_POP": null,
+                "CAT_MOTIV": "D",
+                "A": "false",
+                "B": "false",
+                "C": "false",
+                "D": "true",
+                "LB_NOM": "Psammodromus hispanicus edwarsianus"
+            }
+        ]
+    }
+}

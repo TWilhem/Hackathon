@@ -1,0 +1,49 @@
+{
+    "REG": "Languedoc-Roussillon",
+    "SITE_NAME": "Les Orpellières",
+    "LONGITUDE": "3,31611",
+    "LATITUDE": "43,25806",
+    "DATE_CREA": "27/06/12",
+    "MANAGER": {
+        "MANAGER_ROW": {
+            "NAME": "Communauté d'Agglomération Béziers Méditerranée",
+            "ADDRESS": "39 Boulevard de Verdun - CS 30567",
+            "EMAIL": null,
+            "POST_NAME": "BEZIERS Cedex",
+            "POST_CODE": "34536",
+            "DATE_CREA": "01/02/18",
+            "DATE_BASE": "14/06/18",
+            "PHONE": null
+        }
+    },
+    "RESPONDENT": {},
+    "COMMUNES": {
+        "COMMUNES_ROW": [
+            {
+                "LB_ADM": "SERIGNAN"
+            },
+            {
+                "LB_ADM": "VALRAS-PLAGE"
+            }
+        ]
+    },
+    "OWNERSHIP": {
+        "OWNERSHIP_ROW": [
+            {
+                "DATE_CREA": "01/02/18",
+                "DATE_BASE": "14/06/18",
+                "LB_STPRO": "Etablissement public"
+            },
+            {
+                "DATE_CREA": "01/02/18",
+                "DATE_BASE": "14/06/18",
+                "LB_STPRO": "Domaine public maritime"
+            },
+            {
+                "DATE_CREA": "01/02/18",
+                "DATE_BASE": "14/06/18",
+                "LB_STPRO": "Autre"
+            }
+        ]
+    }
+}
