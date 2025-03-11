@@ -1,7 +1,6 @@
 import xml.etree.ElementTree as ET
 import json
 import requests
-from datetime import datetime
 
 # URL du fichier XML
 xml_url = "https://inpn.mnhn.fr/docs/natura2000/fsdxml/FR9101434.xml"
@@ -13,10 +12,13 @@ xml_content = response.content
 # Parser le contenu XML
 root = ET.fromstring(xml_content)
 
-second_part_tags = {
-    "HABIT1", "HABIT1_ROW", "LB_HABDH_FR", "REPRESENT", "REL_SURF", "CONSERVE", "GLOBAL", "QUALITY",
-    "HABIT2", "HABIT2_ROW", "DESCRIPTFR", "COVER",
-    "SPECIES_OTHER", "SPECIES_OTHER_ROW", "TAXGROUP", "SIZE_MAX", "UNIT", "CAT_POP", "CAT_MOTIV", "A", "B", "C", "D", "LB_NOM"
+# Balises pour le premier fichier
+first_part_tags = {
+    "DATE_EDIT", "REG", "SITE_NAME", "LONGITUDE", "LATITUDE", 
+    "MANAGER", "MANAGER_ROW", "NAME", "ADDRESS", "POST_CODE", 
+    "RESPONDENT", "REPONDENT_ROW", "EMAIL", "POST_NAME", "PHONE", 
+    "OWNERSHIP", "OWNERSHIP_ROW", "LB_STPRO", "DATE_CREA", "DATE_BASE", "COVER",
+    "COMMUNES", "COMMUNES_ROW", "LB_ADM"
 }
 
 def xml_to_dict(element, allowed_tags):
@@ -39,19 +41,16 @@ def xml_to_dict(element, allowed_tags):
     return result
 
 # Convertir les parties du XML en dictionnaire
-data_dict_part2 = xml_to_dict(root, second_part_tags)
+data_dict_part1 = xml_to_dict(root, first_part_tags)
 
 # Convertir en JSON
-json_data_part2 = json.dumps(data_dict_part2, indent=4, ensure_ascii=False)
-
-# Recuperation Time
-Month = datetime.now().strftime("%m")
-Year = datetime.now().strftime("%Y")
+json_data_part1 = json.dumps(data_dict_part1, indent=4, ensure_ascii=False)
 
 # Sauvegarder les fichiers JSON
-json_file_part2 = f"Info_Espece_{Month}_{Year}.json"
+Chemin = "../Archive/"
+json_file_part1 = "Info_Admin.json"
 
-with open(json_file_part2, "w", encoding="utf-8") as f:
-    f.write(json_data_part2)
+with open(f"{Chemin}{json_file_part1}", "w", encoding="utf-8") as f:
+    f.write(json_data_part1)
 
-print(f"Données converties et sauvegardées dans {json_file_part2}")
+print(f"Données converties et sauvegardées dans {json_file_part1}")
