@@ -1,0 +1,32 @@
+[
+    {
+        "période": "De 9h à 12h",
+        "température": "12°",
+        "ressenti": "9°",
+        "vent": "E 24 km/h",
+        "rafales": "Rafales 38 km/h",
+        "direction_vent": "E",
+        "conditions": "Bruine légère",
+        "précipitations": "1.8 mm"
+    },
+    {
+        "période": "Cet après-midi",
+        "température": "14°",
+        "ressenti": "11°",
+        "vent": "SE 24 km/h",
+        "rafales": "Rafales 41 km/h",
+        "direction_vent": "SE",
+        "conditions": "Nuageux",
+        "précipitations": "Pas de précipitations"
+    },
+    {
+        "période": "Ce soir",
+        "température": "13°",
+        "ressenti": "12°",
+        "vent": "NO 7 km/h",
+        "rafales": "Rafales 28 km/h",
+        "direction_vent": "NO",
+        "conditions": "Nuageux",
+        "précipitations": "Pas de précipitations"
+    }
+]
