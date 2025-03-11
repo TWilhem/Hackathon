@@ -1,5 +1,6 @@
 https://inpn.mnhn.fr/site/natura2000/FR9101434
 https://inpn.mnhn.fr/docs/natura2000/fsdpdf/FR9101434.pdf
+https://inpn.mnhn.fr/docs/natura2000/fsdxml/FR9101434.xml
 
 Cartographie
 meteo
