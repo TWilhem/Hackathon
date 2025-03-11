@@ -1605,19 +1605,6 @@
             }
         ]
     },
-    "GESTION": {
-        "GESTION_ROW": {
-            "PK_UPLOAD": "3491",
-            "MODEL": "FR_BIOTOP",
-            "FILENAME": "les-orpellieres-a5133.html",
-            "FPK": "6975",
-            "LINK": "http://www.occitanie.developpement-durable.gouv.fr/les-orpellieres-a5133.html",
-            "TITRE": "Document d'objectif du site FR9101434 - Les Orpellières ; Approuvé par AP du 21 octobre 2014",
-            "TYPE": "Gestion",
-            "DATE_BASE": "14/06/18",
-            "SITECODE": "FR9101434"
-        }
-    },
     "DOCUMENTATION": "",
     "DOC_MAP": ""
 }

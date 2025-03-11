@@ -12,11 +12,17 @@ xml_content = response.content
 # Parser le contenu XML
 root = ET.fromstring(xml_content)
 
+# Listes à exclure
+excluded_tags = {"DESIGC","DESIGR","GESTION"}
+
 def xml_to_dict(element):
-    """Convertit un élément XML en dictionnaire en gérant les balises répétées."""
+    """Convertit un élément XML en dictionnaire en gérant les balises répétées tout en excluant certaines listes."""
     result = {}
     
     for child in element:
+        if child.tag in excluded_tags:
+            continue  # Ignorer les balises exclues
+        
         child_data = xml_to_dict(child) if len(child) else child.text.strip() if child.text else None
         
         if child.tag in result:
