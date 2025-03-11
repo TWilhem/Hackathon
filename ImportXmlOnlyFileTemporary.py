@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 import json
 import requests
+from datetime import datetime
 
 # URL du fichier XML
 xml_url = "https://inpn.mnhn.fr/docs/natura2000/fsdxml/FR9101434.xml"
@@ -43,8 +44,12 @@ data_dict_part2 = xml_to_dict(root, second_part_tags)
 # Convertir en JSON
 json_data_part2 = json.dumps(data_dict_part2, indent=4, ensure_ascii=False)
 
+# Recuperation Time
+Month = datetime.now().strftime("%m")
+Year = datetime.now().strftime("%Y")
+
 # Sauvegarder les fichiers JSON
-json_file_part2 = "Info_Espece.json"
+json_file_part2 = f"Info_Espece_{Month}_{Year}.json"
 
 with open(json_file_part2, "w", encoding="utf-8") as f:
     f.write(json_data_part2)
