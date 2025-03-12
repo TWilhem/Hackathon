@@ -31,6 +31,9 @@
       <h1>Biodiversité</h1>
     </section>
 
+    <section class="Tableau">
+    </section>
+
     <footer>
       <div class="img-logo">
         <nav>
@@ -53,4 +56,57 @@
       </div>
     </footer>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("./docs/Archive/Info_Espece_03_2025.json")
+        .then(response => response.json())
+        .then(data => {
+          afficherTableau(data.SPECIES_OTHER.SPECIES_OTHER_ROW);
+        })
+        .catch(error => console.error("Erreur de chargement du fichier JSON:", error));
+  
+      function afficherTableau(species) {
+        const sectionTableau = document.querySelector(".Tableau");
+  
+        let tableHTML = `
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Groupe Taxonomique</th>
+                <th>Nom Scientifique</th>
+                <th>Taille Max</th>
+                <th>Unité</th>
+                <th>Catégorie Population</th>
+                <th>Motivation Catégorie</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
+  
+        species.forEach(specie => {
+          const nomFichierImage = specie.LB_NOM.toLowerCase().replace(/\s+/g, "_") + ".jpg";
+          const imagePath = `./docs/image/${nomFichierImage}`;
+
+          tableHTML += `
+            <tr>
+              <td><img src="${imagePath}" alt="${specie.LB_NOM}" width="50" height="50" onerror="this.onerror=null;this.src='./assets/species/default.jpg';"></td>
+              <td>${specie.TAXGROUP}</td>
+              <td>${specie.LB_NOM}</td>
+              <td>${specie.SIZE_MAX || "N/A"}</td>
+              <td>${specie.UNIT || "N/A"}</td>
+              <td>${specie.CAT_POP || "N/A"}</td>
+              <td>${specie.CAT_MOTIV || "N/A"}</td>
+            </tr>
+          `;
+        });
+  
+        tableHTML += "</tbody></table>";
+  
+        sectionTableau.innerHTML = tableHTML;
+      }
+    });
+  </script>
+  
+  
 </html>
