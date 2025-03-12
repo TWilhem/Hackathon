@@ -2,9 +2,12 @@ name: Scheduled Python Scripts
 
 on:
   schedule:
-    - cron: "*/30 * * * *"  # Toutes les 30 minutes
+    - cron: "*/2 * * * *"  # Toutes les 30 minutes
     - cron: "0 0 1 * *"     # Le 1er jour de chaque mois à minuit
   workflow_dispatch:  # Permet d'exécuter le workflow manuellement
+  push:
+    branches:
+      - RecupData  # Exécuter uniquement sur la branche 'RecupData'
 
 jobs:
   run-every-30-minutes:
