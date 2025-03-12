@@ -134,8 +134,8 @@ try:
                 new_df = pd.DataFrame([new_row])
                 df = pd.concat([df, new_df], ignore_index=True)
                 
-                # Si on atteint la 169ème entrée, supprimer tout et garder seulement la dernière
-                if len(df) > 168:
+                # Si on atteint la 169ème entrée * 2 pcq cycle de 30min, supprimer tout et garder seulement la dernière
+                if len(df) > (168*2):
                     print(f"Le fichier a atteint 169 entrées - réinitialisation avec la dernière valeur uniquement")
                     # Créer un nouveau DataFrame avec seulement la dernière entrée
                     df = pd.DataFrame([new_row])
