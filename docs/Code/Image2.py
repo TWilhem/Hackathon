@@ -1,16 +1,14 @@
 import json
 import requests
 import os
+from dotenv import load_dotenv
 from PIL import Image
 from io import BytesIO
 from datetime import datetime
 
-# Remplacez ceci par votre clé API Unsplash
-access_key = 'H-7lB7zDdgkXveEX6uaNG9px4UQ4D1mTF-NR_FRE3fU'
-
-# Définir le dossier de sauvegarde des images
-output_dir = "images_species"
-os.makedirs(output_dir, exist_ok=True)
+# Charger les variables d'environnement
+load_dotenv()
+access_key = os.getenv("ACCESS_KEY")
 
 def get_image_from_unsplash(query):
     url = f"https://api.unsplash.com/photos/random?query={query}&client_id={access_key}&count=1"
