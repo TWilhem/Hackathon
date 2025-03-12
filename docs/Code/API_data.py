@@ -22,7 +22,7 @@ params = {
 
 # Nom du fichier CSV
 csv_file = 'meteo_valras_hebdo.csv'
-Chemin = f'../Archive/{csv_file}'
+Chemin = f'docs/Archive/{csv_file}'
 
 # Conversion des codes météo en descriptions
 weather_codes = {
