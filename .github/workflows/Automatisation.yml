@@ -25,7 +25,9 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run script every 30 minutes
-        run: python docs/Code/API_data.py
+        run: |
+          cd docs/Code/
+          python API_data.py
 
   run-monthly:
     runs-on: ubuntu-latest
@@ -43,5 +45,6 @@ jobs:
 
       - name: Run script every first of each month
         run: |
-          python docs/Code/ImportXmlOnlyFileTemporary.py
-          python docs/Code/ImportXmlOnlyFileAdmin.py
+          cd docs/Code/
+          python /ImportXmlOnlyFileTemporary.py
+          python /ImportXmlOnlyFileAdmin.py
