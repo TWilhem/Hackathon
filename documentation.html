@@ -124,7 +124,7 @@
             .layers({ "Satellite IGN": orthoLayer, OSM: osmLayer })
             .addTo(this.map);
 
-          orthoLayer.addTo(this.map);
+          osmLayer.addTo(this.map);
         },
 
         createLayer: function (
@@ -160,32 +160,47 @@
       });
 
       function loadGeoJSON() {
-        fetch("./map.geojson") // Charge le fichier GeoJSON
+        var overlays = {}; // Stocke les couches activables
+
+        fetch("./map.geojson")
           .then((response) => response.json())
           .then((data) => {
             let geojsonLayer = L.geoJSON(data, {
               style: function (feature) {
                 return {
-                  color: feature.properties.stroke, // Contour
-                  weight: feature.properties["stroke-width"], // Épaisseur contour
-                  fillColor: feature.properties.fill, // Couleur de remplissage
-                  fillOpacity: feature.properties["fill-opacity"], // Opacité remplissage
+                  color: feature.properties.stroke,
+                  weight: feature.properties["stroke-width"],
+                  fillColor: feature.properties.fill,
+                  fillOpacity: feature.properties["fill-opacity"],
                 };
               },
               onEachFeature: function (feature, layer) {
                 if (feature.properties && feature.properties.nom) {
-                  layer.bindPopup(feature.properties.nom); // Ajoute une popup avec le nom
+                  layer.bindPopup(feature.properties.nom); // Affiche le nom au clic
+                  overlays[feature.properties.nom] = layer; // Ajoute la zone aux couches activables
                 }
               },
-            }).addTo(map.map); // Ajoute le GeoJSON à la carte
+            }).addTo(map.map);
 
-            // Ajuste la vue pour englober la zone
-            map.map.options.minZoom = 14;
             map.map.fitBounds(geojsonLayer.getBounds());
+            map.map.options.minZoom = 14;
+            map.map.setMaxBounds([
+              [43, 25806, 2.8], // Sud-Ouest
+              [43.285, 2.8], // Nord-Est
+            ]);
+            map.map.options.maxBoundsViscosity = 1.0;
+            map.map.fitBounds(geojsonLayer.getBounds()); // Ajuste la vue pour afficher toute la zone
+
+            // Ajoute un panneau de contrôle pour afficher/masquer les zones
+            L.control
+              .layers(null, overlays, { collapsed: false })
+              .addTo(map.map);
           })
           .catch((error) =>
             console.error("Erreur de chargement du GeoJSON:", error)
           );
+
+        // Ajuste la vue pour englober la zone
       }
     </script>
   </body>

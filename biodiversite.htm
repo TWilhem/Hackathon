@@ -75,6 +75,7 @@
 
         species.forEach((specie) => {
           const nomFichierImage = specie.LB_NOM.replace(/\s+/g, "_") + ".jpg";
+          console.log(nomFichierImage);
           const imagePath = `./docs/image/${nomFichierImage}`;
 
           const speciesCard = document.createElement("div");
