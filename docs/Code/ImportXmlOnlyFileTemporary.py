@@ -13,7 +13,7 @@ xml_content = response.content
 # Parser le contenu XML
 root = ET.fromstring(xml_content)
 
-second_part_tags = {
+tags = {
     "HABIT1", "HABIT1_ROW", "LB_HABDH_FR", "PF", "QUALITY", "REPRESENT", "REL_SURF", "CONSERVE", "GLOBAL",
     "HABIT2", "HABIT2_ROW", "DESCRIPTFR", "COVER",
     "SPECIES_OTHER", "SPECIES_OTHER_ROW", "TAXGROUP", "SIZE_MAX", "UNIT", "CAT_POP", "CAT_MOTIV", "LB_NOM"
@@ -90,7 +90,7 @@ def xml_to_dict(element, allowed_tags):
     return result
 
 # Convertir les parties du XML en dictionnaire
-data_dict_part2 = xml_to_dict(root, second_part_tags)
+data_dict_part2 = xml_to_dict(root, tags)
 
 # Convertir en JSON
 json_data_part2 = json.dumps(data_dict_part2, indent=4, ensure_ascii=False)
