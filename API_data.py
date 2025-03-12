@@ -21,7 +21,7 @@ params = {
 }
 
 # Nom du fichier CSV
-csv_file = 'meteo_valras_horaire.csv'
+csv_file = 'meteo_valras_hebdo.csv'
 
 # Conversion des codes météo en descriptions
 weather_codes = {
@@ -111,7 +111,7 @@ try:
         timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
         
         # Préparer les données à écrire
-        row_data = {
+        new_row = {
             "timestamp": timestamp,
             "temperature": temp,
             "ressenti": apparent_temp,
@@ -125,36 +125,30 @@ try:
         # Vérifier si le fichier existe
         file_exists = os.path.isfile(csv_file)
         
-        # Si le fichier existe, lire les données existantes et supprimer celles de plus d'une semaine
         if file_exists:
             try:
                 # Lire le fichier CSV existant
                 df = pd.read_csv(csv_file)
                 
-                # Convertir la colonne timestamp en datetime
-                df['timestamp'] = pd.to_datetime(df['timestamp'])
-                
-                # Calculer la date limite (une semaine en arrière)
-                one_week_ago = now - timedelta(days=7)
-                
-                # Filtrer pour ne garder que les entrées des 7 derniers jours
-                df = df[df['timestamp'] >= one_week_ago]
-                
                 # Ajouter la nouvelle ligne
-                new_row = pd.DataFrame([row_data])
-                new_row['timestamp'] = pd.to_datetime(new_row['timestamp'])
-                df = pd.concat([df, new_row], ignore_index=True)
+                new_df = pd.DataFrame([new_row])
+                df = pd.concat([df, new_df], ignore_index=True)
+                
+                # Si on atteint la 169ème entrée, supprimer tout et garder seulement la dernière
+                if len(df) > 168:
+                    print(f"Le fichier a atteint 169 entrées - réinitialisation avec la dernière valeur uniquement")
+                    # Créer un nouveau DataFrame avec seulement la dernière entrée
+                    df = pd.DataFrame([new_row])
                 
                 # Écrire les données mises à jour dans le fichier CSV
                 df.to_csv(csv_file, index=False)
                 
-                #print(f"Données météo de {timestamp} enregistrées dans '{csv_file}'")
-                #print(f"Les entrées de plus d'une semaine ont été supprimées")
+                print(f"Données météo de {timestamp} enregistrées dans '{csv_file}'")
+                print(f"Le fichier contient maintenant {len(df)} entrées")
                 
             except Exception as e:
                 print(f"Erreur lors de la manipulation du fichier existant: {e}")
-                #print("Création d'un nouveau fichier...")
-                # En cas d'erreur, recréer le fichier
+                print("Création d'un nouveau fichier...")
                 file_exists = False
         
         # Si le fichier n'existe pas ou s'il y a eu une erreur, créer un nouveau fichier
@@ -170,13 +164,12 @@ try:
                 writer.writeheader()
                 
                 # Écrire la ligne de données
-                writer.writerow(row_data)
-       
-            #print(f"Nouveau fichier '{csv_file}' créé avec les données météo de {timestamp}")
+                writer.writerow(new_row)
+            
+            print(f"Nouveau fichier '{csv_file}' créé avec les données météo de {timestamp}")
         
     else:
         print("Impossible de trouver l'heure actuelle dans les données de prévision.")
-        
         
 except requests.exceptions.RequestException as err:
     print(f"Erreur lors de la requête: {err}")
