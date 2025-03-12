@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/style-galerie.css" />
+    <link rel="stylesheet" href="./css/style-bio.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,54 +63,65 @@
       fetch("./docs/Archive/Info_Espece_03_2025.json")
         .then((response) => response.json())
         .then((data) => {
-          afficherTableau(data.SPECIES_OTHER.SPECIES_OTHER_ROW);
+          afficherEspeces(data.SPECIES_OTHER.SPECIES_OTHER_ROW);
         })
         .catch((error) =>
           console.error("Erreur de chargement du fichier JSON:", error)
         );
 
-      function afficherTableau(species) {
+      function afficherEspeces(species) {
         const sectionTableau = document.querySelector(".Tableau");
-
-        let tableHTML = `
-          <table border="1">
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Groupe Taxonomique</th>
-                <th>Nom Scientifique</th>
-                <th>Taille Max</th>
-                <th>Unité</th>
-                <th>Catégorie Population</th>
-                <th>Motivation Catégorie</th>
-              </tr>
-            </thead>
-            <tbody>
-        `;
+        sectionTableau.innerHTML = "";
 
         species.forEach((specie) => {
           const nomFichierImage =
             specie.LB_NOM.toLowerCase().replace(/\s+/g, "_") + ".jpg";
           const imagePath = `./docs/image/${nomFichierImage}`;
 
-          tableHTML += `
-            <tr>
-              <td><img src="${imagePath}" alt="${
-            specie.LB_NOM
-          }" width="50" height="50" onerror="this.onerror=null;this.src='./assets/species/default.jpg';"></td>
-              <td>${specie.TAXGROUP}</td>
-              <td>${specie.LB_NOM}</td>
-              <td>${specie.SIZE_MAX || "N/A"}</td>
-              <td>${specie.UNIT || "N/A"}</td>
-              <td>${specie.CAT_POP || "N/A"}</td>
-              <td>${specie.CAT_MOTIV || "N/A"}</td>
-            </tr>
-          `;
+          const speciesCard = document.createElement("div");
+          speciesCard.classList.add("species-card");
+
+          const speciesInfo = document.createElement("div");
+          speciesInfo.classList.add("species-info");
+
+          const title = document.createElement("h3");
+          title.textContent = specie.LB_NOM;
+
+          const taxGroup = document.createElement("p");
+          taxGroup.textContent = `Groupe: ${specie.TAXGROUP}`;
+
+          const sizeMax = document.createElement("p");
+          sizeMax.textContent = `Taille Max: ${specie.SIZE_MAX || "N/A"} ${
+            specie.UNIT || ""
+          }`;
+
+          const category = document.createElement("p");
+          category.textContent = `Catégorie Population: ${
+            specie.CAT_POP || "N/A"
+          }`;
+
+          const motivation = document.createElement("p");
+          motivation.textContent = `Motivation: ${specie.CAT_MOTIV || "N/A"}`;
+
+          const image = document.createElement("img");
+          image.src = imagePath;
+          image.alt = specie.LB_NOM;
+          image.onerror = function () {
+            this.onerror = null;
+            this.src = "./assets/species/default.jpg";
+          };
+
+          speciesInfo.appendChild(title);
+          speciesInfo.appendChild(taxGroup);
+          speciesInfo.appendChild(sizeMax);
+          speciesInfo.appendChild(category);
+          speciesInfo.appendChild(motivation);
+
+          speciesCard.appendChild(speciesInfo);
+          speciesCard.appendChild(image);
+
+          sectionTableau.appendChild(speciesCard);
         });
-
-        tableHTML += "</tbody></table>";
-
-        sectionTableau.innerHTML = tableHTML;
       }
     });
 
