@@ -1,6 +1,7 @@
 import requests
 import csv
 import os
+import pandas as pd
 from datetime import datetime, timedelta
 
 # URL de base de l'API Open-Meteo
@@ -124,25 +125,58 @@ try:
         # Vérifier si le fichier existe
         file_exists = os.path.isfile(csv_file)
         
-        # Ouvrir le fichier en mode append
-        with open(csv_file, 'a', newline='', encoding='utf-8') as f:
-            # Définir les en-têtes
-            fieldnames = ["timestamp", "temperature", "ressenti", "precipitation", 
-                         "vent_kmh", "rafales_kmh", "direction_vent", "conditions"]
-            
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
-            
-            # Écrire les en-têtes si le fichier n'existe pas
-            if not file_exists:
-                writer.writeheader()
-            
-            # Écrire la ligne de données
-            writer.writerow(row_data)
+        # Si le fichier existe, lire les données existantes et supprimer celles de plus d'une semaine
+        if file_exists:
+            try:
+                # Lire le fichier CSV existant
+                df = pd.read_csv(csv_file)
+                
+                # Convertir la colonne timestamp en datetime
+                df['timestamp'] = pd.to_datetime(df['timestamp'])
+                
+                # Calculer la date limite (une semaine en arrière)
+                one_week_ago = now - timedelta(days=7)
+                
+                # Filtrer pour ne garder que les entrées des 7 derniers jours
+                df = df[df['timestamp'] >= one_week_ago]
+                
+                # Ajouter la nouvelle ligne
+                new_row = pd.DataFrame([row_data])
+                new_row['timestamp'] = pd.to_datetime(new_row['timestamp'])
+                df = pd.concat([df, new_row], ignore_index=True)
+                
+                # Écrire les données mises à jour dans le fichier CSV
+                df.to_csv(csv_file, index=False)
+                
+                #print(f"Données météo de {timestamp} enregistrées dans '{csv_file}'")
+                #print(f"Les entrées de plus d'une semaine ont été supprimées")
+                
+            except Exception as e:
+                print(f"Erreur lors de la manipulation du fichier existant: {e}")
+                #print("Création d'un nouveau fichier...")
+                # En cas d'erreur, recréer le fichier
+                file_exists = False
         
-        print(f"Données météo de {timestamp} enregistrées dans '{csv_file}'")
+        # Si le fichier n'existe pas ou s'il y a eu une erreur, créer un nouveau fichier
+        if not file_exists:
+            with open(csv_file, 'w', newline='', encoding='utf-8') as f:
+                # Définir les en-têtes
+                fieldnames = ["timestamp", "temperature", "ressenti", "precipitation", 
+                             "vent_kmh", "rafales_kmh", "direction_vent", "conditions"]
+                
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                
+                # Écrire les en-têtes
+                writer.writeheader()
+                
+                # Écrire la ligne de données
+                writer.writerow(row_data)
+       
+            #print(f"Nouveau fichier '{csv_file}' créé avec les données météo de {timestamp}")
         
     else:
         print("Impossible de trouver l'heure actuelle dans les données de prévision.")
+        
         
 except requests.exceptions.RequestException as err:
     print(f"Erreur lors de la requête: {err}")
