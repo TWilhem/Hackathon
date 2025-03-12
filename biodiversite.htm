@@ -74,8 +74,7 @@
         sectionTableau.innerHTML = "";
 
         species.forEach((specie) => {
-          const nomFichierImage =
-            specie.LB_NOM.toLowerCase().replace(/\s+/g, "_") + ".jpg";
+          const nomFichierImage = specie.LB_NOM.replace(/\s+/g, "_") + ".jpg";
           const imagePath = `./docs/image/${nomFichierImage}`;
 
           const speciesCard = document.createElement("div");
