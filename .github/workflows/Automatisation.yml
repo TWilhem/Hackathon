@@ -1,0 +1,44 @@
+name: Scheduled Python Scripts
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # Toutes les 30 minutes
+    - cron: "0 0 1 * *"     # Le 1er jour de chaque mois à minuit
+  workflow_dispatch:  # Permet d'exécuter le workflow manuellement
+
+jobs:
+  run-every-30-minutes:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '*/30 * * * *'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script every 30 minutes
+        run: python ./docs/Code/API_data.py
+
+  run-monthly:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 0 1 * *'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script every first of each month
+        run: python ./docs/Code/ImportXmlOnlyFileTemporary.py && python ./docs/Code/ImportXmlOnlyFileAdmin.py
