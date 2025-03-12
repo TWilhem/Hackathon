@@ -29,6 +29,7 @@
     <section class="hero-banner">
       <img id="hero-photo" src="./assets/img-1.jpg" alt="" />
       <h1>Galerie</h1>
+      <div class="scroll-arrow">⬇</div>
     </section>
 
     <section class="gallery" id="galerie">
@@ -75,11 +76,14 @@
       window.addEventListener("scroll", function () {
         const header = document.querySelector("header");
         const nav = document.querySelector("nav");
+        const scrollArrow = document.querySelector(".scroll-arrow");
         if (window.scrollY > 250) {
           header.classList.add("scroll-active");
           nav.classList.add("scroll-active-nav");
+          scrollArrow.classList.add("hidden");
         } else {
           header.classList.remove("scroll-active");
+          scrollArrow.classList.remove("hidden");
         }
       });
     </script>

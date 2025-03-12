@@ -31,6 +31,7 @@
         <source src="./assets/video.MP4" type="video/mp4" />
         Votre navigateur ne supporte pas les vidéos.
       </video>
+      <div class="scroll-arrow">⬇</div>
     </section>
 
     <section id="a-propos">
@@ -133,11 +134,14 @@
       window.addEventListener("scroll", function () {
         const header = document.querySelector("header");
         const nav = document.querySelector("nav");
+        const scrollArrow = document.querySelector(".scroll-arrow");
         if (window.scrollY > 250) {
           header.classList.add("scroll-active");
           nav.classList.add("scroll-active-nav");
+          scrollArrow.classList.add("hidden");
         } else {
           header.classList.remove("scroll-active");
+          scrollArrow.classList.remove("hidden");
         }
       });
     </script>

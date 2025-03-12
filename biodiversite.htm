@@ -29,10 +29,10 @@
     <section class="hero-banner">
       <img id="hero-photo" src="./assets/img-32.jpg" alt="" />
       <h1>Biodiversité</h1>
+      <div class="scroll-arrow">⬇</div>
     </section>
 
-    <section class="Tableau">
-    </section>
+    <section class="Tableau"></section>
 
     <footer>
       <div class="img-logo">
@@ -59,15 +59,17 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       fetch("./docs/Archive/Info_Espece_03_2025.json")
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           afficherTableau(data.SPECIES_OTHER.SPECIES_OTHER_ROW);
         })
-        .catch(error => console.error("Erreur de chargement du fichier JSON:", error));
-  
+        .catch((error) =>
+          console.error("Erreur de chargement du fichier JSON:", error)
+        );
+
       function afficherTableau(species) {
         const sectionTableau = document.querySelector(".Tableau");
-  
+
         let tableHTML = `
           <table border="1">
             <thead>
@@ -83,14 +85,17 @@
             </thead>
             <tbody>
         `;
-  
-        species.forEach(specie => {
-          const nomFichierImage = specie.LB_NOM.toLowerCase().replace(/\s+/g, "_") + ".jpg";
+
+        species.forEach((specie) => {
+          const nomFichierImage =
+            specie.LB_NOM.toLowerCase().replace(/\s+/g, "_") + ".jpg";
           const imagePath = `./docs/image/${nomFichierImage}`;
 
           tableHTML += `
             <tr>
-              <td><img src="${imagePath}" alt="${specie.LB_NOM}" width="50" height="50" onerror="this.onerror=null;this.src='./assets/species/default.jpg';"></td>
+              <td><img src="${imagePath}" alt="${
+            specie.LB_NOM
+          }" width="50" height="50" onerror="this.onerror=null;this.src='./assets/species/default.jpg';"></td>
               <td>${specie.TAXGROUP}</td>
               <td>${specie.LB_NOM}</td>
               <td>${specie.SIZE_MAX || "N/A"}</td>
@@ -100,13 +105,25 @@
             </tr>
           `;
         });
-  
+
         tableHTML += "</tbody></table>";
-  
+
         sectionTableau.innerHTML = tableHTML;
       }
     });
+
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector("header");
+      const nav = document.querySelector("nav");
+      const scrollArrow = document.querySelector(".scroll-arrow");
+      if (window.scrollY > 250) {
+        header.classList.add("scroll-active");
+        nav.classList.add("scroll-active-nav");
+        scrollArrow.classList.add("hidden");
+      } else {
+        header.classList.remove("scroll-active");
+        scrollArrow.classList.remove("hidden");
+      }
+    });
   </script>
-  
-  
 </html>
