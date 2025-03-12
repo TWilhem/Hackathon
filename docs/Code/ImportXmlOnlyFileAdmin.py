@@ -13,7 +13,7 @@ xml_content = response.content
 root = ET.fromstring(xml_content)
 
 # Balises pour le premier fichier
-first_part_tags = {
+tags = {
     "DATE_EDIT", "REG", "SITE_NAME", "LONGITUDE", "LATITUDE", 
     "MANAGER", "MANAGER_ROW", "NAME", "ADDRESS", "POST_CODE", 
     "RESPONDENT", "REPONDENT_ROW", "EMAIL", "POST_NAME", "PHONE", 
@@ -41,7 +41,7 @@ def xml_to_dict(element, allowed_tags):
     return result
 
 # Convertir les parties du XML en dictionnaire
-data_dict_part1 = xml_to_dict(root, first_part_tags)
+data_dict_part1 = xml_to_dict(root, tags)
 
 # Convertir en JSON
 json_data_part1 = json.dumps(data_dict_part1, indent=4, ensure_ascii=False)
