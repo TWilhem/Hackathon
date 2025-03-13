@@ -92,14 +92,14 @@ def fetch_weather_data():
                 wind_direction_text = "NO"
                 
             new_entry = {
-                "temp": now.strftime("%Y-%m-%d %H:%M:%S"),
-                "apparent_temp": data["hourly"]["temperature_2m"][current_hour_index],
-                "precip": data["hourly"]["apparent_temperature"][current_hour_index],
+                "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
+                "temperature": data["hourly"]["temperature_2m"][current_hour_index],
+                "ressenti": data["hourly"]["apparent_temperature"][current_hour_index],
                 "precipitation": data["hourly"]["precipitation"][current_hour_index],
-                "wind_speed": data["hourly"]["windspeed_10m"][current_hour_index],
-                "wind_gusts": data["hourly"]["windgusts_10m"][current_hour_index],
-                "wind_direction": wind_direction_text,
-                "weather_code": weather_codes.get(data["hourly"]["weathercode"][current_hour_index], "Conditions inconnues")
+                "vent_kmh": data["hourly"]["windspeed_10m"][current_hour_index],
+                "rafales_kmh": data["hourly"]["windgusts_10m"][current_hour_index],
+                "direction_vent": wind_direction_text,
+                "conditions": weather_codes.get(data["hourly"]["weathercode"][current_hour_index], "Conditions inconnues")
             }
             
             # Charger les entrées existantes

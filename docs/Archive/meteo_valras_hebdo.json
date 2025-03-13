@@ -1,22 +1,12 @@
 [
   {
-    "temp": "2025-03-13 10:45:17",
-    "apparent_temp": 9.4,
-    "precip": 6.9,
+    "timestamp": "2025-03-13 11:48:48",
+    "temperature": 9.6,
+    "ressenti": 8.4,
     "precipitation": 0.0,
-    "wind_speed": 5.4,
-    "wind_gusts": 12.2,
-    "wind_direction": "O",
-    "weather_code": "Nuageux"
-  },
-  {
-    "temp": "2025-03-13 10:34:23",
-    "apparent_temp": 8.7,
-    "precip": 6.9,
-    "precipitation": 0.0,
-    "wind_speed": 5.7,
-    "wind_gusts": 12.2,
-    "wind_direction": "NO",
-    "weather_code": "Nuageux"
+    "vent_kmh": 1.8,
+    "rafales_kmh": 14.0,
+    "direction_vent": "N",
+    "conditions": "Nuageux"
   }
 ]
