@@ -18,5 +18,15 @@
     "rafales_kmh": 12.2,
     "direction_vent": "NO",
     "conditions": "Nuageux"
+  },
+  {
+    "timestamp": "2025-03-13 18:08:24",
+    "temperature": 9.6,
+    "ressenti": 8.3,
+    "precipitation": 0.0,
+    "vent_kmh": 6.0,
+    "rafales_kmh": 20.5,
+    "direction_vent": "SO",
+    "conditions": "Nuageux"
   }
 ]
