@@ -1,0 +1,14 @@
+https://docs.google.com/document/d/1_NsT8FpP3Ft8L03X7bGN8yvGTSduMJhYKwt5QTekP1o/edit?usp=sharing
+
+Partie innovante dans le site : RT
+
+Hébergement du site sur GitHub
+
+Nous avons décidé de ne rien faire en physique : À la place, on utilise le service GitHub qui est gratuit et disponible sur Internet nous permettant d’atteindre le même résultat tout en garantissant moins de dépenses énergétiques.Comme la création ou l’achat de nouvelles machines ainsi que leur alimentation pour héberger ces serveurs. 
+En effet, il permet d’héberger des services tels que ce site web.
+
+De plus, cela permet d’éviter la nécessité d’avoir des locaux et donc l’extraction des ressources nécessaire, leur transport, etc. Et on évite par la même occasion de détruire le paysage.
+
+Création d’une base de données
+
+	
