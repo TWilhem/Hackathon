@@ -24,7 +24,7 @@
             ><div class="logo"><img src="./assets/logo.png" alt="" /></div
           ></a>
           <li><a href="./galerie.html">Galerie</a></li>
-          <li><a href="./documentation.html">Carte</a></li>
+          <li><a href="./documentation.html">Observations</a></li>
         </ul>
       </nav>
     </header>
@@ -34,8 +34,8 @@
       <div class="scroll-arrow">⬇</div>
     </section>
     <section class="actualite">
-      <div class="grid">
-        <!-- Génération automatique des actualités -->
+      <div class="grid" id="news-container">
+        <!-- Les actualités sont via JS -->
       </div>
     </section>
 
@@ -60,8 +60,25 @@
         <img src="./assets/logo-natura.jpg" alt="" />
       </div>
     </footer>
-
     <script>
+      fetch("./docs/actu.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const container = document.getElementById("news-container");
+
+          data.actualites.forEach((actu) => {
+            const item = document.createElement("div");
+            item.classList.add("news-item");
+
+            item.innerHTML = `
+        <img src="${actu.image.src}" alt="${actu.image.alt}" />
+        <h3>${actu.titre}</h3>
+        <p>${actu.paragraphe}</p>
+      `;
+
+            container.appendChild(item);
+          });
+        });
       window.addEventListener("scroll", function () {
         const header = document.querySelector("header");
         const nav = document.querySelector("nav");
@@ -73,32 +90,6 @@
         } else {
           header.classList.remove("scroll-active");
           scrollArrow.classList.remove("hidden");
-        }
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const actualiteGrid = document.querySelector(".grid");
-        const newsCount = 12; // 3 par ligne, 4 lignes
-
-        for (let i = 1; i <= newsCount; i++) {
-          const article = document.createElement("div");
-          article.classList.add("news-item");
-
-          const img = document.createElement("img");
-          img.src = `./assets/news-${i}.jpg`;
-          img.alt = `Actualité ${i}`;
-
-          const title = document.createElement("h3");
-          title.textContent = `Titre de l'actualité ${i}`;
-
-          const description = document.createElement("p");
-          description.textContent =
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.";
-
-          article.appendChild(img);
-          article.appendChild(title);
-          article.appendChild(description);
-          actualiteGrid.appendChild(article);
         }
       });
     </script>

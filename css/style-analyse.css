@@ -1,9 +1,79 @@
+#carte {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .meteo-container {
   max-width: 900px;
   margin: auto;
   padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
+#currentWeather {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.weather-icon {
+  font-size: 80px;
+  margin-left: 20px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weather-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 1.1em;
+}
+
+.weather-details p {
+  margin: 5px 0;
+}
+
+.weather-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+.weather-tab {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #666;
+  transition: color 0.3s ease-in-out;
+}
+
+.weather-tab:hover,
+.weather-tab.active {
+  color: #ff9800;
+  border-bottom: 3px solid #ff9800;
+}
 #chartsContainer {
   display: flex;
   flex-direction: column;
@@ -14,12 +84,17 @@
 .chart-wrapper {
   width: 100%;
   max-width: 700px;
-  height: 400px;
-  padding: 10px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 65px;
+  height: 350px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  padding: 75px;
+}
+
+.chart-wrapper.active {
+  display: block;
 }
 
 canvas {
