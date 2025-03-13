@@ -333,7 +333,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("./docs/Archive/meteo_valras_hebdo.json") // Charge le fichier JSON contenant les données météo
+        fetch("./docs/Archive/meteo_valras_hebdo_simule.json") // Charge le fichier JSON contenant les données météo
           .then((response) => response.json())
           .then((data) => {
             let labels = data.map((d) => d.timestamp); // Dates
