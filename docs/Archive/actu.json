@@ -3,7 +3,7 @@
     {
       "image": {
         "alt": "Actualité 1",
-        "src": "./assets/news1.jpg"
+        "src": "./docs/assets/news1.jpg"
       },
       "titre": "Intempéries : Les répercussions sur le site",
       "paragraphe": "Le weekend du 9 Mars des intempéries d'une violence rare a frappé la région dont les Orpellières..."
@@ -11,7 +11,7 @@
     {
       "image": {
         "alt": "Actualité 2",
-        "src": "./assets/img-27.jpg"
+        "src": "./docs/assets/img-27.jpg"
       },
       "titre": "Gravelot : La famille s'agrandit !",
       "paragraphe": "C'est avec une immense joie que nous annonçons l'arrivé de nouvelles petites têtes sur le site. Nous vous prions évidemment de vous rappeler..."
@@ -19,7 +19,7 @@
     {
       "image": {
         "alt": "Actualité 3",
-        "src": "./assets/news4.jpg"
+        "src": "./docs/assets/news4.jpg"
       },
       "titre": "Interdictions aux chiens : La restriction arrive bientôt",
       "paragraphe": "Ils peuvent être les meillieurs amis de l'homme, ils ne le sont pas pour nos espèces protégés..."
@@ -27,7 +27,7 @@
     {
       "image": {
         "alt": "Actualité 4",
-        "src": "./assets/news3.png"
+        "src": "./docs/assets/news3.png"
       },
       "titre": "2024 : De nouvelles résolutions à prévoir",
       "paragraphe": "Pour bien commencer l'année, nous allons faire quelques changements autour des terrains..."
@@ -35,7 +35,7 @@
     {
       "image": {
         "alt": "Actualité 5",
-        "src": "./assets/news2.jpg"
+        "src": "./docs/assets/news2.jpg"
       },
       "titre": "Cannettes au sol ? Mauvaise Idée !",
       "paragraphe": "Un groupe d'individus à eu la glorieuse idée de prendre la plage comme une décharge. Le résultat ..."
@@ -43,7 +43,7 @@
     {
       "image": {
         "alt": "Actualité 6",
-        "src": "./assets/img-dune.jpg"
+        "src": "./docs/assets/img-dune.jpg"
       },
       "titre": "La meillieure experience des Orpellières",
       "paragraphe": "Comme chaque été les gardiens du littoraux oragnisent une sortie mémorable..."
