@@ -1,0 +1,42 @@
+name: Scheduled Python Scripts
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # Toutes les 30 minutes
+  workflow_dispatch:  # Permet d'exécuter le workflow manuellement
+  push:
+    branches:
+      - RecupData  # Exécuter uniquement sur la branche 'RecupData'
+
+jobs:
+  run-every-30-minutes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: RecupData
+          fetch-depth: 0  # Nécessaire pour éviter les erreurs de push
+          persist-credentials: false  # Désactive les credentials par défaut
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        run: |
+          cd docs/Code/
+          python api_json.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Mise à jour automatique des fichiers générés (30 min)" || exit 0
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:RecupData

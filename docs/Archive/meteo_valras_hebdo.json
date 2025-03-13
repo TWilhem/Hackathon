@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": "2025-03-13 11:48:48",
+    "temperature": 9.6,
+    "ressenti": 8.4,
+    "precipitation": 0.0,
+    "vent_kmh": 1.8,
+    "rafales_kmh": 14.0,
+    "direction_vent": "N",
+    "conditions": "Nuageux"
+  },
+  {
+    "timestamp": "2025-03-13 10:58:51",
+    "temperature": 8.7,
+    "ressenti": 6.9,
+    "precipitation": 0.0,
+    "vent_kmh": 5.7,
+    "rafales_kmh": 12.2,
+    "direction_vent": "NO",
+    "conditions": "Nuageux"
+  },
+  {
+    "timestamp": "2025-03-13 18:08:24",
+    "temperature": 9.6,
+    "ressenti": 8.3,
+    "precipitation": 0.0,
+    "vent_kmh": 6.0,
+    "rafales_kmh": 20.5,
+    "direction_vent": "SO",
+    "conditions": "Nuageux"
+  },
+  {
+    "timestamp": "2025-03-13 18:13:02",
+    "temperature": 9.6,
+    "ressenti": 8.3,
+    "precipitation": 0.0,
+    "vent_kmh": 6.0,
+    "rafales_kmh": 20.5,
+    "direction_vent": "SO",
+    "conditions": "Nuageux"
+  }
+]
