@@ -8,5 +8,15 @@
     "wind_gusts": 12.2,
     "wind_direction": "O",
     "weather_code": "Nuageux"
+  },
+  {
+    "temp": "2025-03-13 10:34:23",
+    "apparent_temp": 8.7,
+    "precip": 6.9,
+    "precipitation": 0.0,
+    "wind_speed": 5.7,
+    "wind_gusts": 12.2,
+    "wind_direction": "NO",
+    "weather_code": "Nuageux"
   }
 ]
