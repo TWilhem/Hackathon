@@ -73,7 +73,7 @@ header {
   top: 0;
   width: 100%;
   transition: background 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 9999;
   background: transparent; /* Pas de background au début */
 }
 

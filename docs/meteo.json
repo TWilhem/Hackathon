@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2025-03-12 17:19:02",
+    "temperature": 16.7,
+    "ressenti": 12.3,
+    "precipitation": 10.0,
+    "vent_kmh": 25.8,
+    "rafales_kmh": 41.8,
+    "direction_vent": "O",
+    "conditions": "Ciel dégagé"
+  },
+  {
+    "timestamp": "2025-03-12 17:20:28",
+    "temperature": 16.7,
+    "ressenti": 12.3,
+    "precipitation": 0.0,
+    "vent_kmh": 25.8,
+    "rafales_kmh": 41.8,
+    "direction_vent": "O",
+    "conditions": "Ciel dégagé"
+  },
+  {
+    "timestamp": "2025-03-12 17:20:34",
+    "temperature": 16.7,
+    "ressenti": 12.3,
+    "precipitation": 0.0,
+    "vent_kmh": 25.8,
+    "rafales_kmh": 41.8,
+    "direction_vent": "O",
+    "conditions": "Ciel dégagé"
+  }
+]

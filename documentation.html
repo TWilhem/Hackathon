@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galerie</title>
     <link rel="stylesheet" href="./css/style-galerie.css" />
+    <link rel="stylesheet" href="./css/style-analyse.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,6 +24,7 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header>
@@ -33,7 +36,7 @@
             ><div class="logo"><img src="./assets/logo.png" alt="" /></div
           ></a>
           <li><a href="./galerie.html">Galerie</a></li>
-          <li><a href="./documentation.html">Documentations</a></li>
+          <li><a href="./documentation.html">Carte</a></li>
         </ul>
       </nav>
     </header>
@@ -45,6 +48,23 @@
     <section>
       <div id="viewerDiv" style="width: 100%; height: 600px"></div>
     </section>
+    <div class="meteo-container">
+      <h2 class="meteo-title">Tableau de bord météo</h2>
+      <div id="chartsContainer">
+        <div class="chart-wrapper">
+          <h3>Température et Ressenti</h3>
+          <canvas id="temperatureChart"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <h3>Vent et Rafales</h3>
+          <canvas id="ventChart"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <h3>Précipitations</h3>
+          <canvas id="precipitationChart"></canvas>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <div class="img-logo">
@@ -53,7 +73,7 @@
             <li><a href="./actualite.html">Actualités</a></li>
             <li><a href="./biodiversite.htm">Biodiversité</a></li>
             <li><a href="./galerie.html">Galerie</a></li>
-            <li><a href="./documentation.html">Documentations</a></li>
+            <li><a href="./documentation.html">Carte</a></li>
           </ul>
         </nav>
         <a href="./index.html"
@@ -202,6 +222,161 @@
 
         // Ajuste la vue pour englober la zone
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("./docs/meteo.json") // Charge le fichier JSON contenant les données météo
+          .then((response) => response.json())
+          .then((data) => {
+            let labels = data.map((d) => d.timestamp); // Dates
+            let temperature = data.map((d) => d.temperature); // Températures
+            let ressenti = data.map((d) => d.ressenti); // Ressenti
+            let precipitation = data.map((d) => d.precipitation); // Précipitations
+            let vent = data.map((d) => d.vent_kmh); // Vitesse du vent
+            let rafales = data.map((d) => d.rafales_kmh); // Rafales de vent
+
+            let chartsContainer = document.getElementById("chartsContainer");
+            if (!chartsContainer) {
+              console.error(
+                "Erreur : l'élément #chartsContainer est introuvable dans le DOM."
+              );
+              return;
+            }
+
+            let ctx1 = document.getElementById("temperatureChart");
+            let ctx2 = document.getElementById("ventChart");
+            let ctx3 = document.getElementById("precipitationChart");
+
+            if (!ctx1 || !ctx2 || !ctx3) {
+              console.error(
+                "Erreur : Un ou plusieurs éléments <canvas> sont introuvables."
+              );
+              return;
+            }
+
+            ctx1 = ctx1.getContext("2d");
+            ctx2 = ctx2.getContext("2d");
+            ctx3 = ctx3.getContext("2d");
+
+            // Vérifie et détruit les anciens graphiques s'ils existent
+            if (window.temperatureChart instanceof Chart) {
+              window.temperatureChart.destroy();
+            }
+            if (window.ventChart instanceof Chart) {
+              window.ventChart.destroy();
+            }
+            if (window.precipitationChart instanceof Chart) {
+              window.precipitationChart.destroy();
+            }
+
+            // Graphique 1 : Température et Ressenti
+            window.temperatureChart = new Chart(ctx1, {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Température (°C)",
+                    data: temperature,
+                    borderColor: "red",
+                    backgroundColor: "rgba(255, 0, 0, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                  {
+                    label: "Ressenti (°C)",
+                    data: ressenti,
+                    borderColor: "orange",
+                    backgroundColor: "rgba(255, 165, 0, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: {
+                    title: { display: true, text: "Date et Heure" },
+                  },
+                  y: {
+                    title: { display: true, text: "Température (°C)" },
+                  },
+                },
+              },
+            });
+
+            // Graphique 2 : Vent et Rafales
+            window.ventChart = new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Vent (km/h)",
+                    data: vent,
+                    borderColor: "green",
+                    backgroundColor: "rgba(0, 255, 0, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                  {
+                    label: "Rafales (km/h)",
+                    data: rafales,
+                    borderColor: "purple",
+                    backgroundColor: "rgba(128, 0, 128, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: {
+                    title: { display: true, text: "Date et Heure" },
+                  },
+                  y: {
+                    title: { display: true, text: "Vitesse du vent (km/h)" },
+                  },
+                },
+              },
+            });
+
+            // Graphique 3 : Précipitations
+            window.precipitationChart = new Chart(ctx3, {
+              type: "bar",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Précipitations (mm)",
+                    data: precipitation,
+                    borderColor: "blue",
+                    backgroundColor: "rgba(0, 0, 255, 0.5)",
+                    fill: true,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: {
+                    title: { display: true, text: "Date et Heure" },
+                  },
+                  y: {
+                    title: { display: true, text: "Précipitations (mm)" },
+                  },
+                },
+              },
+            });
+          })
+          .catch((error) =>
+            console.error("Erreur de chargement des données météo :", error)
+          );
+      });
     </script>
   </body>
 </html>
