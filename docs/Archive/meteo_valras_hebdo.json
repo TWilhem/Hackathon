@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2025-03-13 09:44:47",
+    "temperature": 8.2,
+    "ressenti": 5.3,
+    "precipitation": 0.0,
+    "vent_kmh": 6.9,
+    "rafales_kmh": 25.9,
+    "direction_vent": "NO",
+    "conditions": "Nuageux"
+  }
+]

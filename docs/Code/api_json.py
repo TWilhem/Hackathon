@@ -1,8 +1,7 @@
 import requests
-import csv
+import json
 import os
-import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime
 
 # URL de base de l'API Open-Meteo
 base_url = "https://api.open-meteo.com/v1/forecast"
@@ -20,9 +19,9 @@ params = {
     "forecast_days": 1  # Limiter aux prévisions du jour actuel
 }
 
-# Nom du fichier CSV
-csv_file = 'meteo_valras_hebdo.csv'
-Chemin = f'../Archive/{csv_file}'
+# Nom du fichier JSON
+json_file = 'meteo_valras_hebdo.json'
+Chemin = f'../Archive/{json_file}'
 
 # Conversion des codes météo en descriptions
 weather_codes = {
@@ -112,7 +111,7 @@ try:
         timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
         
         # Préparer les données à écrire
-        new_row = {
+        new_entry = {
             "timestamp": timestamp,
             "temperature": temp,
             "ressenti": apparent_temp,
@@ -123,29 +122,36 @@ try:
             "conditions": weather_description
         }
         
+        # Initialiser la liste des entrées
+        entries = []
+        
         # Vérifier si le fichier existe
         file_exists = os.path.isfile(Chemin)
         
         if file_exists:
             try:
-                # Lire le fichier CSV existant
-                df = pd.read_csv(Chemin)
+                # Lire le fichier JSON existant
+                with open(Chemin, 'r', encoding='utf-8') as f:
+                    entries = json.load(f)
                 
-                # Ajouter la nouvelle ligne
-                new_df = pd.DataFrame([new_row])
-                df = pd.concat([df, new_df], ignore_index=True)
+                # Si entries n'est pas une liste (peut arriver si le format n'est pas correct)
+                if not isinstance(entries, list):
+                    entries = []
                 
-                # Si on atteint la 169ème entrée * 2 pcq cycle de 30min, supprimer tout et garder seulement la dernière
-                if len(df) > (168*2):
-                    print(f"Le fichier a atteint 169 entrées - réinitialisation avec la dernière valeur uniquement")
-                    # Créer un nouveau DataFrame avec seulement la dernière entrée
-                    df = pd.DataFrame([new_row])
+                # Ajouter la nouvelle entrée
+                entries.append(new_entry)
                 
-                # Écrire les données mises à jour dans le fichier CSV
-                df.to_csv(Chemin, index=False)
+                # Si on atteint la 336ème entrée (168*2 - cycle de 30min), supprimer tout sauf la dernière
+                if len(entries) > (168*2):
+                    print(f"Le fichier a atteint 336 entrées - réinitialisation avec la dernière valeur uniquement")
+                    entries = [new_entry]
                 
-                print(f"Données météo de {timestamp} enregistrées dans '{csv_file}'")
-                print(f"Le fichier contient maintenant {len(df)} entrées")
+                # Écrire les données mises à jour dans le fichier JSON
+                with open(Chemin, 'w', encoding='utf-8') as f:
+                    json.dump(entries, f, ensure_ascii=False, indent=2)
+                
+                print(f"Données météo de {timestamp} enregistrées dans '{json_file}'")
+                print(f"Le fichier contient maintenant {len(entries)} entrées")
                 
             except Exception as e:
                 print(f"Erreur lors de la manipulation du fichier existant: {e}")
@@ -154,20 +160,13 @@ try:
         
         # Si le fichier n'existe pas ou s'il y a eu une erreur, créer un nouveau fichier
         if not file_exists:
-            with open(Chemin, 'w', newline='', encoding='utf-8') as f:
-                # Définir les en-têtes
-                fieldnames = ["timestamp", "temperature", "ressenti", "precipitation", 
-                             "vent_kmh", "rafales_kmh", "direction_vent", "conditions"]
-                
-                writer = csv.DictWriter(f, fieldnames=fieldnames)
-                
-                # Écrire les en-têtes
-                writer.writeheader()
-                
-                # Écrire la ligne de données
-                writer.writerow(new_row)
+            # Créer un nouveau fichier avec une liste contenant la nouvelle entrée
+            entries = [new_entry]
             
-            print(f"Nouveau fichier '{csv_file}' créé avec les données météo de {timestamp}")
+            with open(Chemin, 'w', encoding='utf-8') as f:
+                json.dump(entries, f, ensure_ascii=False, indent=2)
+            
+            print(f"Nouveau fichier '{json_file}' créé avec les données météo de {timestamp}")
         
     else:
         print("Impossible de trouver l'heure actuelle dans les données de prévision.")

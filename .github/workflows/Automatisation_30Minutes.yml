@@ -31,7 +31,7 @@ jobs:
       - name: Run script
         run: |
           cd docs/Code/
-          python API_data.py
+          python api_json.py
 
       - name: Commit and push changes
         run: |
