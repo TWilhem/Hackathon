@@ -13,15 +13,6 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-#hero-video {
-  width: 104%;
-  height: 108%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
 
 /* Flèche d'incitation au scroll */
 .scroll-arrow {
@@ -202,6 +193,7 @@ h2 {
 
 #a-propos {
   padding: 0 75px;
+  margin-top: 85px;
 }
 
 /* Footer */
