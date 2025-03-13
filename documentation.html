@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carte</title>
+    <link rel="stylesheet" href="./docs/css/style-galerie.css" />
+    <link rel="stylesheet" href="./docs/css/style-analyse.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="./biodiversite.htm">La biodiversité locale</a>
+          </li>
+          <li>
+            <a href="./galerie.html">Galerie photos </a>
+          </li>
+          <a href="./index.html"
+            ><div class="logo"><img src="./docs/assets/logo.png" alt="" /></div
+          ></a>
+
+          <li><a href="./documentation.html">Parcours découverte</a></li>
+          <li><a href="./actualite.html">Actualités</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero-banner">
+      <img id="hero-photo" src="./docs/assets/img-29.jpg" alt="" />
+      <h1>Notre parcours</h1>
+      <div class="scroll-arrow" onclick="scrollToNextSection()">⬇</div>
+    </section>
+    <section id="carte" id="nextSection">
+      <h3>Carte</h3>
+      <div id="viewerDiv" style="width: 100%; height: 600px"></div>
+
+      <div class="section-container">
+        <div class="hike-info">
+          <h3 class="hike-header">Randonnée aux Orpellières</h3>
+          <p>
+            Une balade dans un espace naturel exceptionnel, idéale en famille,
+            pour allier plaisirs de la plage et découverte de l'environnement.
+          </p>
+          <div class="hike-details">
+            <div class="hike-card">
+              <p>
+                <strong>Difficulté :</strong>
+                <span
+                  style="
+                    color: #007bff;
+                    background: #e0f2ff;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                  "
+                  >Facile</span
+                >
+              </p>
+            </div>
+            <div class="hike-card">
+              <p><strong>Distance :</strong> 4,13 km</p>
+              <p><strong>Durée :</strong> 01:00 h</p>
+            </div>
+            <div class="hike-card">
+              <p><strong>Évaluation :</strong></p>
+              <p>
+                Technique: ⭐⚪⚪⚪⚪ | Endurance: ⭐⭐⚪⚪⚪ | Paysage:
+                ⭐⭐⭐⭐⚪
+              </p>
+            </div>
+            <div class="hike-card">
+              <p><strong>Point de départ :</strong> Sérignan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="frequentation-container">
+          <h2 class="frequentation-title" style="text-align: center">
+            Fréquentation des Orpellieres
+          </h2>
+          <canvas id="frequentationChart"></canvas>
+        </div>
+      </div>
+    </section>
+    <div class="meteo-container">
+      <h2 class="meteo-title">Tableau de bord météo</h2>
+
+      <div id="currentWeather">
+        <div class="weather-info">
+          <h3>Météo Actuelle</h3>
+          <div class="weather-details">
+            <p>
+              <strong>🌡️ Température :</strong>
+              <span id="currentTemp">--</span>°C
+            </p>
+            <p>
+              <strong>🤔 Ressenti :</strong> <span id="currentFeels">--</span>°C
+            </p>
+            <p>
+              <strong>💨 Vent :</strong> <span id="currentWind">--</span> km/h
+            </p>
+            <p>
+              <strong>🌪️ Rafales :</strong>
+              <span id="currentGusts">--</span> km/h
+            </p>
+            <p>
+              <strong>🌧️ Précipitations :</strong>
+              <span id="currentPrecip">--</span> mm
+            </p>
+            <p>
+              <strong>🌥️ Conditions :</strong>
+              <span id="currentCondition">--</span>
+            </p>
+          </div>
+        </div>
+        <div class="weather-icon">🌧️</div>
+      </div>
+
+      <div class="weather-tabs">
+        <div class="weather-tab active" data-chart="temperatureChart">
+          Température
+        </div>
+        <div class="weather-tab" data-chart="precipitationChart">
+          Précipitations
+        </div>
+        <div class="weather-tab" data-chart="ventChart">Vent</div>
+      </div>
+
+      <div id="chartsContainer">
+        <div class="chart-wrapper active" id="temperatureChartWrapper">
+          <h3 style="text-align: center">Température et Ressenti</h3>
+          <canvas id="temperatureChart"></canvas>
+        </div>
+        <div class="chart-wrapper" id="ventChartWrapper">
+          <h3 style="text-align: center">Vent et Rafales</h3>
+          <canvas id="ventChart"></canvas>
+        </div>
+        <div class="chart-wrapper" id="precipitationChartWrapper">
+          <h3 style="text-align: center">Précipitations</h3>
+          <canvas id="precipitationChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="img-logo">
+        <nav>
+          <ul>
+            <li><a href="./index.html">Accueil</a></li>
+
+            <li><a href="./actualite.html">Actualités</a></li>
+            <li><a href="./biodiversite.htm">Biodiversité</a></li>
+            <li><a href="./galerie.html">Galerie</a></li>
+            <li><a href="./documentation.html">Notre parcours</a></li>
+          </ul>
+        </nav>
+        <a href="./index.html"
+          ><img style="width: 190px" src="./docs/assets/logo.png" alt=""
+        /></a>
+      </div>
+      <hr />
+      <div class="partners">
+        <img src="./docs/assets/logo-ue-occ.jpg" alt="" />
+        <img src="./docs/assets/logo-occ.png" alt="" />
+        <img src="./docs/assets/logo-natura.jpg" alt="" />
+        <img src="./docs/assets/logo-conservatoire.png" alt="" />
+        <img src="./docs/assets/agglo_B.jpg" alt="" />
+      </div>
+    </footer>
+
+    <script>
+      function scrollToNextSection() {
+        document.getElementById("carte").scrollIntoView({ behavior: "smooth" });
+      }
+
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        const nav = document.querySelector("nav");
+        const scrollArrow = document.querySelector(".scroll-arrow");
+        if (window.scrollY > 250) {
+          header.classList.add("scroll-active");
+          nav.classList.add("scroll-active-nav");
+          scrollArrow.classList.add("hidden");
+        } else {
+          header.classList.remove("scroll-active");
+          scrollArrow.classList.remove("hidden");
+        }
+      });
+      var map = {
+        map: "",
+        idMap: "viewerDiv",
+        zoom: 14,
+        longitude: 3.2784,
+        latitude: 43.2722,
+
+        setLongitude: function (longitude) {
+          this.longitude = longitude;
+        },
+        setLatitude: function (latitude) {
+          this.latitude = latitude;
+        },
+
+        init: function (longitude, latitude) {
+          this.setLongitude(longitude);
+          this.setLatitude(latitude);
+
+          this.map = L.map(this.idMap).setView(
+            [this.latitude, this.longitude],
+            this.zoom
+          );
+
+          let orthoLayer = this.createLayer(
+            "decouverte",
+            "image/jpeg",
+            "ORTHOIMAGERY.ORTHOPHOTOS",
+            1,
+            "IGN-F/Géoportail"
+          );
+
+          let osmLayer = L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+              attribution: "&copy; OpenStreetMap contributors",
+            }
+          );
+
+          L.control
+            .layers({ "Satellite IGN": orthoLayer, OSM: osmLayer })
+            .addTo(this.map);
+
+          osmLayer.addTo(this.map);
+        },
+
+        createLayer: function (
+          key,
+          format,
+          layerName,
+          opacity,
+          attribution,
+          style = "normal"
+        ) {
+          let newLayer = L.tileLayer(
+            "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER={layer}&STYLE={style}&FORMAT={format}&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}",
+            {
+              key: key,
+              format: format,
+              layer: layerName,
+              opacity: opacity,
+              attribution: attribution,
+              style: style,
+              minZoom: 0,
+              maxZoom: 16,
+              tileSize: 256,
+            }
+          );
+          return newLayer;
+        },
+      };
+
+      // S'assure que la carte est initialisée avant de charger le GeoJSON
+      document.addEventListener("DOMContentLoaded", function () {
+        map.init(3.2784, 43.2722);
+        loadGeoJSON(); // Charge le GeoJSON après que la carte soit prête
+      });
+
+      function loadGeoJSON() {
+        var overlays = {}; // Stocke les couches activables
+
+        fetch("./docs/Archive/map.geojson")
+          .then((response) => response.json())
+          .then((data) => {
+            let geojsonLayer = L.geoJSON(data, {
+              style: function (feature) {
+                return {
+                  color: feature.properties.stroke,
+                  weight: feature.properties["stroke-width"],
+                  fillColor: feature.properties.fill,
+                  fillOpacity: feature.properties["fill-opacity"],
+                };
+              },
+              onEachFeature: function (feature, layer) {
+                if (feature.properties && feature.properties.nom) {
+                  layer.bindPopup(feature.properties.nom); // Affiche le nom au clic
+                  overlays[feature.properties.nom] = layer; // Ajoute la zone aux couches activables
+                }
+              },
+            }).addTo(map.map);
+
+            map.map.fitBounds(geojsonLayer.getBounds());
+            map.map.options.minZoom = 14;
+            map.map.setMaxBounds([
+              [43, 25806, 2.8], // Sud-Ouest
+              [43.285, 2.8], // Nord-Est
+            ]);
+            map.map.options.maxBoundsViscosity = 1.0;
+            map.map.fitBounds(geojsonLayer.getBounds()); // Ajuste la vue pour afficher toute la zone
+
+            // Ajoute un panneau de contrôle pour afficher/masquer les zones
+            L.control
+              .layers(null, overlays, { collapsed: false })
+              .addTo(map.map);
+          })
+          .catch((error) =>
+            console.error("Erreur de chargement du GeoJSON:", error)
+          );
+
+        // Ajuste la vue pour englober la zone
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("./docs/Archive/meteo_valras_hebdo_simule.json") // Charge le fichier JSON contenant les données météo
+          .then((response) => response.json())
+          .then((data) => {
+            let labels = data.map((d) => d.timestamp); // Dates
+            let temperature = data.map((d) => d.temperature); // Températures
+            let ressenti = data.map((d) => d.ressenti); // Ressenti
+            let precipitation = data.map((d) => d.precipitation); // Précipitations
+            let vent = data.map((d) => d.vent_kmh); // Vitesse du vent
+            let rafales = data.map((d) => d.rafales_kmh); // Rafales de vent
+
+            let chartsContainer = document.getElementById("chartsContainer");
+            if (!chartsContainer) {
+              console.error(
+                "Erreur : l'élément #chartsContainer est introuvable dans le DOM."
+              );
+              return;
+            }
+
+            let ctx1 = document.getElementById("temperatureChart");
+            let ctx2 = document.getElementById("ventChart");
+            let ctx3 = document.getElementById("precipitationChart");
+
+            if (!ctx1 || !ctx2 || !ctx3) {
+              console.error(
+                "Erreur : Un ou plusieurs éléments <canvas> sont introuvables."
+              );
+              return;
+            }
+
+            ctx1 = ctx1.getContext("2d");
+            ctx2 = ctx2.getContext("2d");
+            ctx3 = ctx3.getContext("2d");
+
+            // Vérifie et détruit les anciens graphiques s'ils existent
+            if (window.temperatureChart instanceof Chart) {
+              window.temperatureChart.destroy();
+            }
+            if (window.ventChart instanceof Chart) {
+              window.ventChart.destroy();
+            }
+            if (window.precipitationChart instanceof Chart) {
+              window.precipitationChart.destroy();
+            }
+
+            // Graphique 1 : Température et Ressenti
+            window.temperatureChart = new Chart(ctx1, {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Température (°C)",
+                    data: temperature,
+                    borderColor: "red",
+                    backgroundColor: "rgba(255, 0, 0, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                  {
+                    label: "Ressenti (°C)",
+                    data: ressenti,
+                    borderColor: "orange",
+                    backgroundColor: "rgba(255, 165, 0, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: {
+                    title: { display: true, text: "Date et Heure" },
+                  },
+                  y: {
+                    title: { display: true, text: "Température (°C)" },
+                  },
+                },
+              },
+            });
+
+            // Graphique 2 : Vent et Rafales
+            window.ventChart = new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Vent (km/h)",
+                    data: vent,
+                    borderColor: "green",
+                    backgroundColor: "rgba(0, 255, 0, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                  {
+                    label: "Rafales (km/h)",
+                    data: rafales,
+                    borderColor: "purple",
+                    backgroundColor: "rgba(128, 0, 128, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: {
+                    title: { display: true, text: "Date et Heure" },
+                  },
+                  y: {
+                    title: { display: true, text: "Vitesse du vent (km/h)" },
+                  },
+                },
+              },
+            });
+
+            // Graphique 3 : Précipitations
+            window.precipitationChart = new Chart(ctx3, {
+              type: "bar",
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Précipitations (mm)",
+                    data: precipitation,
+                    borderColor: "blue",
+                    backgroundColor: "rgba(0, 0, 255, 0.5)",
+                    fill: true,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: {
+                    title: { display: true, text: "Date et Heure" },
+                  },
+                  y: {
+                    title: { display: true, text: "Précipitations (mm)" },
+                  },
+                },
+              },
+            });
+            if (data.length > 0) {
+              let latest = data[data.length - 1]; // Dernière entrée de la météo
+              document.getElementById("currentTemp").textContent =
+                latest.temperature;
+              document.getElementById("currentFeels").textContent =
+                latest.ressenti;
+              document.getElementById("currentWind").textContent =
+                latest.vent_kmh;
+              document.getElementById("currentGusts").textContent =
+                latest.rafales_kmh;
+              document.getElementById("currentPrecip").textContent =
+                latest.precipitation;
+              document.getElementById("currentCondition").textContent =
+                latest.conditions;
+            }
+          })
+
+          .catch((error) =>
+            console.error("Erreur de chargement des données météo :", error)
+          );
+      });
+
+      document.querySelectorAll(".weather-tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          document
+            .querySelectorAll(".weather-tab")
+            .forEach((t) => t.classList.remove("active"));
+          document
+            .querySelectorAll(".chart-wrapper")
+            .forEach((chart) => chart.classList.remove("active"));
+
+          this.classList.add("active");
+          document
+            .getElementById(this.getAttribute("data-chart") + "Wrapper")
+            .classList.add("active");
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("./docs/Archive/Analyse_Frequentation.json")
+          .then((response) => response.json())
+          .then((data) => {
+            let months = Object.keys(data);
+            let totalFrequentation = months.map((month) => {
+              return data[month].reduce(
+                (acc, entry) => acc + entry["Total"],
+                0
+              );
+            });
+
+            const ctx = document
+              .getElementById("frequentationChart")
+              .getContext("2d");
+            new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: months,
+                datasets: [
+                  {
+                    label: "Total de fréquentation par mois",
+                    data: totalFrequentation,
+                    borderColor: "#ff6384",
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: "Nombre de visiteurs",
+                    },
+                  },
+                },
+              },
+            });
+          })
+          .catch((error) =>
+            console.error(
+              "Erreur de chargement des données de fréquentation :",
+              error
+            )
+          );
+      });
+    </script>
+  </body>
+</html>

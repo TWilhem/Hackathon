@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./docs/css/style-galerie.css" />
+    <link rel="stylesheet" href="./docs/css/style-act.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="./biodiversite.htm">La biodiversité locale</a>
+          </li>
+          <li>
+            <a href="./galerie.html">Galerie photos </a>
+          </li>
+          <a href="./index.html"
+            ><div class="logo"><img src="./docs/assets/logo.png" alt="" /></div
+          ></a>
+
+          <li><a href="./documentation.html">Parcours découverte</a></li>
+          <li><a href="./actualite.html">Actualités</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero-banner">
+      <img id="hero-photo" src="./docs/assets/img-2.jpg" alt="" />
+      <h1>Actualités</h1>
+      <div class="scroll-arrow" onclick="scrollToNextSection()">⬇</div>
+    </section>
+    <section class="actualite" id="actualite">
+      <div class="grid" id="news-container">
+        <!-- Les actualités sont via JS -->
+      </div>
+    </section>
+
+    <footer>
+      <div class="img-logo">
+        <nav>
+          <ul>
+            <li><a href="./index.html">Accueil</a></li>
+            <li><a href="./actualite.html">Actualités</a></li>
+            <li><a href="./biodiversite.htm">Biodiversité</a></li>
+            <li><a href="./galerie.html">Galerie</a></li>
+            <li><a href="./documentation.html">Observations</a></li>
+          </ul>
+        </nav>
+        <a href="./index.html"
+          ><img style="width: 190px" src="./docs/assets/logo.png" alt=""
+        /></a>
+      </div>
+      <hr />
+      <div class="partners">
+        <img src="./docs/assets/logo-ue-occ.jpg" alt="" />
+        <img src="./docs/assets/logo-occ.png" alt="" />
+        <img src="./docs/assets/logo-natura.jpg" alt="" />
+        <img src="./docs/assets/logo-conservatoire.png" alt="" />
+        <img src="./docs/assets/agglo_B.jpg" alt="" />
+      </div>
+    </footer>
+    <script>
+      function scrollToNextSection() {
+        document
+          .getElementById("actualite")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      fetch("./docs/Archive/actu.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const container = document.getElementById("news-container");
+
+          data.actualites.forEach((actu) => {
+            const item = document.createElement("div");
+            item.classList.add("news-item");
+
+            item.innerHTML = `
+        <img src="${actu.image.src}" alt="${actu.image.alt}" />
+        <h3>${actu.titre}</h3>
+        <p>${actu.paragraphe}</p>
+      `;
+
+            container.appendChild(item);
+          });
+        });
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        const nav = document.querySelector("nav");
+        const scrollArrow = document.querySelector(".scroll-arrow");
+        if (window.scrollY > 250) {
+          header.classList.add("scroll-active");
+          nav.classList.add("scroll-active-nav");
+          scrollArrow.classList.add("hidden");
+        } else {
+          header.classList.remove("scroll-active");
+          scrollArrow.classList.remove("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

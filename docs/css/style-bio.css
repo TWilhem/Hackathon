@@ -1,0 +1,53 @@
+/* Carte des espèces */
+.Tableau {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  gap: 20px;
+  padding: 20px;
+}
+
+.species-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.species-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+
+.species-card .species-info {
+  flex: 1;
+  text-align: left;
+}
+
+.species-card h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.species-card p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .Tableau {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Tableau {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

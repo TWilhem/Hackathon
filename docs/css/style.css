@@ -1,0 +1,273 @@
+/* Styles généraux */
+body {
+  margin: 0;
+  color: #333;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Hero Banner */
+.hero-banner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Flèche d'incitation au scroll */
+.scroll-arrow {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  animation: glow 1.5s infinite alternate, bounce 1.5s infinite;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border-radius: 49999px;
+  width: 3%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Sticky Header */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  transition: background 0.3s ease-in-out;
+  z-index: 9999;
+  background: transparent; /* Pas de background au début */
+}
+
+.scroll-active header {
+  background: rgba(0, 0, 0, 0.7); /* Fond ajouté après scroll */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 100px;
+  margin-left: -55px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+nav ul li {
+  margin: 0 30px;
+  filter: drop-shadow(1px -0.1px #000);
+}
+.content .ciel-img {
+  width: 30%;
+}
+
+.content .dune-img {
+  width: 45%;
+}
+
+.content .ciel-img:hover {
+  transform: translateZ(10px) rotateX(-10deg) rotateY(-20deg) scale(1.08);
+  transition: transform 0.5s ease;
+}
+
+.content .dune-img:hover {
+  transform: translateZ(10px) rotateX(-10deg) rotateY(20deg) scale(1.08);
+  transition: transform 0.5s ease;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* Logo centré dans la vidéo */
+.logo {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  transform: translate(0, 50%);
+  z-index: 10;
+  transition: all 0.9s ease-in-out;
+}
+
+.logo img {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Sticky effect - déplacement du logo */
+.scroll-active {
+  background-color: #a99893;
+}
+
+.scroll-active nav {
+  padding: 0px 100px;
+}
+
+.scroll-active .logo {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+.scroll-active .logo img {
+  width: 150px;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.content p {
+  width: 45%;
+  font-size: 1.2em;
+}
+
+.content img {
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(200, 143, 143, 0.1);
+}
+
+/* Règlementation */
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icons img {
+  width: 80px;
+  height: 80px;
+}
+
+#reglementation {
+  padding: 25px 35px;
+}
+
+#a-propos {
+  padding: 0 75px;
+  margin-top: 85px;
+}
+
+/* Footer */
+
+footer {
+  background-color: #a99893;
+}
+
+.img-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+
+.partners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 10px;
+}
+
+.partners img {
+  width: 70px;
+
+  margin: 10px;
+}
+
+#reglementation {
+  text-align: center;
+  padding: 50px 5%;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+  grid-template-rows: repeat(2, auto); /* 2 lignes */
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.icon-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.icon-item p {
+  font-size: 1em;
+  color: #333;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .icons-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur petits écrans */
+  }
+}
+
+@media (max-width: 600px) {
+  .icons-grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 colonne sur mobiles */
+  }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./docs/css/style-galerie.css" />
+    <link rel="stylesheet" href="./docs/css/style-bio.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="./biodiversite.htm">La biodiversité locale</a>
+          </li>
+          <li>
+            <a href="./galerie.html">Galerie photos </a>
+          </li>
+          <a href="./index.html"
+            ><div class="logo"><img src="./docs/assets/logo.png" alt="" /></div
+          ></a>
+
+          <li><a href="./documentation.html">Parcours découverte</a></li>
+          <li><a href="./actualite.html">Actualités</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero-banner">
+      <img id="hero-photo" src="./docs/assets/img-32.jpg" alt="" />
+      <h1>Biodiversité</h1>
+      <div class="scroll-arrow" onclick="scrollToNextSection()">⬇</div>
+    </section>
+
+    <section class="Tableau" id="tab"></section>
+
+    <footer>
+      <div class="img-logo">
+        <nav>
+          <ul>
+            <li><a href="./index.html">Accueil</a></li>
+            <li><a href="./actualite.html">Actualités</a></li>
+            <li><a href="./biodiversite.htm">Biodiversité</a></li>
+            <li><a href="./galerie.html">Galerie</a></li>
+            <li><a href="./documentation.html">Observations</a></li>
+          </ul>
+        </nav>
+        <a href="./index.html"
+          ><img style="width: 190px" src="./docs/assets/logo.png" alt=""
+        /></a>
+      </div>
+      <hr />
+      <div class="partners">
+        <img src="./docs/assets/logo-ue-occ.jpg" alt="" />
+        <img src="./docs/assets/logo-occ.png" alt="" />
+        <img src="./docs/assets/logo-natura.jpg" alt="" />
+        <img src="./docs/assets/logo-conservatoire.png" alt="" />
+        <img src="./docs/assets/agglo_B.jpg" alt="" />
+      </div>
+    </footer>
+  </body>
+  <script>
+    function scrollToNextSection() {
+      document.getElementById("tab").scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("./docs/Archive/Info_Espece_03_2025.json")
+        .then((response) => response.json())
+        .then((data) => {
+          afficherEspeces(data.SPECIES_OTHER.SPECIES_OTHER_ROW);
+        })
+        .catch((error) =>
+          console.error("Erreur de chargement du fichier JSON:", error)
+        );
+
+      function afficherEspeces(species) {
+        const sectionTableau = document.querySelector(".Tableau");
+        sectionTableau.innerHTML = "";
+
+        species.forEach((specie) => {
+          const nomFichierImage = specie.LB_NOM.replace(/\s+/g, "_") + ".jpg";
+          console.log(nomFichierImage);
+          const imagePath = `./docs/image/${nomFichierImage}`;
+
+          const speciesCard = document.createElement("div");
+          speciesCard.classList.add("species-card");
+
+          const speciesInfo = document.createElement("div");
+          speciesInfo.classList.add("species-info");
+
+          const title = document.createElement("h3");
+          title.textContent = specie.LB_NOM;
+
+          const taxGroup = document.createElement("p");
+          taxGroup.textContent = `Groupe: ${specie.TAXGROUP}`;
+
+          const sizeMax = document.createElement("p");
+          sizeMax.textContent = `Taille Max: ${specie.SIZE_MAX || "N/A"} ${
+            specie.UNIT || ""
+          }`;
+
+          const category = document.createElement("p");
+          category.textContent = `Catégorie Population: ${
+            specie.CAT_POP || "N/A"
+          }`;
+
+          const motivation = document.createElement("p");
+          motivation.textContent = `Motivation: ${specie.CAT_MOTIV || "N/A"}`;
+
+          const image = document.createElement("img");
+          image.src = imagePath;
+          image.alt = specie.LB_NOM;
+          image.onerror = function () {
+            this.onerror = null;
+            this.src = "./docs/assets/species/default.jpg";
+          };
+
+          speciesInfo.appendChild(title);
+          speciesInfo.appendChild(taxGroup);
+          speciesInfo.appendChild(sizeMax);
+          speciesInfo.appendChild(category);
+          speciesInfo.appendChild(motivation);
+
+          speciesCard.appendChild(speciesInfo);
+          speciesCard.appendChild(image);
+
+          sectionTableau.appendChild(speciesCard);
+        });
+      }
+    });
+
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector("header");
+      const nav = document.querySelector("nav");
+      const scrollArrow = document.querySelector(".scroll-arrow");
+      if (window.scrollY > 250) {
+        header.classList.add("scroll-active");
+        nav.classList.add("scroll-active-nav");
+        scrollArrow.classList.add("hidden");
+      } else {
+        header.classList.remove("scroll-active");
+        scrollArrow.classList.remove("hidden");
+      }
+    });
+  </script>
+</html>
