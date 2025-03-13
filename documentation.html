@@ -229,7 +229,7 @@
       function loadGeoJSON() {
         var overlays = {}; // Stocke les couches activables
 
-        fetch("./map.geojson")
+        fetch("./docs/Archive/map.geojson")
           .then((response) => response.json())
           .then((data) => {
             let geojsonLayer = L.geoJSON(data, {
@@ -271,7 +271,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("./docs/meteo.json") // Charge le fichier JSON contenant les données météo
+        fetch("./docs/Archive/meteo_valras_hebdo.json") // Charge le fichier JSON contenant les données météo
           .then((response) => response.json())
           .then((data) => {
             let labels = data.map((d) => d.timestamp); // Dates
