@@ -18,22 +18,33 @@
     <header>
       <nav>
         <ul>
-          <li><a href="./actualite.html">Actualités</a></li>
-          <li><a href="./biodiversite.htm">Biodiversité</a></li>
+          <li>
+            <a href="./biodiversite.htm"
+              >Découverte de<br />
+              notre biodiversite</a
+            >
+          </li>
+          <li>
+            <a href="./documentation.html"
+              >Notre <br />
+              parcours
+            </a>
+          </li>
           <a href="./index.html"
             ><div class="logo"><img src="./assets/logo.png" alt="" /></div
           ></a>
+
           <li><a href="./galerie.html">Galerie</a></li>
-          <li><a href="./documentation.html">Observations</a></li>
+          <li><a href="./actualite.html">Actualités</a></li>
         </ul>
       </nav>
     </header>
     <section class="hero-banner">
       <img id="hero-photo" src="./assets/img-2.jpg" alt="" />
       <h1>Actualités</h1>
-      <div class="scroll-arrow">⬇</div>
+      <div class="scroll-arrow" onclick="scrollToNextSection()">⬇</div>
     </section>
-    <section class="actualite">
+    <section class="actualite" id="actualite">
       <div class="grid" id="news-container">
         <!-- Les actualités sont via JS -->
       </div>
@@ -64,6 +75,12 @@
       </div>
     </footer>
     <script>
+      function scrollToNextSection() {
+        document
+          .getElementById("actualite")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
       fetch("./docs/Archive/actu.json")
         .then((response) => response.json())
         .then((data) => {

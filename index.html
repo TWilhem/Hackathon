@@ -16,13 +16,24 @@
     <header>
       <nav>
         <ul>
-          <li><a href="./actualite.html">Actualités</a></li>
-          <li><a href="./biodiversite.htm">Biodiversité</a></li>
+          <li>
+            <a href="./biodiversite.htm"
+              >Découverte de<br />
+              notre biodiversite</a
+            >
+          </li>
+          <li>
+            <a href="./documentation.html"
+              >Notre <br />
+              parcours
+            </a>
+          </li>
           <a href="./index.html"
             ><div class="logo"><img src="./assets/logo.png" alt="" /></div
           ></a>
+
           <li><a href="./galerie.html">Galerie</a></li>
-          <li><a href="./documentation.html">Observations</a></li>
+          <li><a href="./actualite.html">Actualités</a></li>
         </ul>
       </nav>
     </header>
@@ -36,39 +47,50 @@
         id="hero-video"
       >
       </iframe>
-      <div class="scroll-arrow">⬇</div>
+      <div class="scroll-arrow" onclick="scrollToNextSection()">⬇</div>
     </section>
 
     <section id="a-propos">
       <h2>A propos</h2>
       <div class="content">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Le site naturel des Orpellières, situé sur les communes de Sérignan et
+          Valras-Plage, est un espace remarquable de 180 hectares, classé Natura
+          2000 depuis 2014 et géré par la Communauté d’Agglomération Béziers
+          Méditerranée. Ce territoire d’exception, à la rencontre entre mer et
+          fleuve, se distingue par la diversité de ses paysages naturels : dunes
+          littorales, prairies humides, lagunes temporaires, roselières,
+          sansouïres (zones salées), ainsi qu’une vaste plage.
+
+          <br /><br />Cette variété de milieux naturels en fait un lieu unique
+          sur le littoral, à la fois préservé et ouvert à la découverte. Pour
+          assurer la bonne gestion de ce site, une équipe de gardiens du
+          littoral est mobilisée tout au long de l’année. Composée d’Enzo
+          Fouillet, chargé de mission biodiversité, et de Julie Gonnet-Baldwin,
+          animatrice nature, l’équipe veille à l’entretien et la préservation
+          des espaces naturels, à la surveillance du site, ainsi qu’à l’accueil
+          et la sensibilisation des visiteurs.
         </p>
-        <img src="./assets/img-dune.jpg" alt="Dunes et nature" />
+        <img
+          src="./assets/img-ciel.jpg"
+          alt="Dunes et nature"
+          class="img-reflet ciel-img"
+        />
       </div>
       <div class="content">
-        <img src="./assets/img-ciel.jpg" alt="Paysage" />
+        <img src="./assets/img-dune.jpg" alt="Paysage" class="dune-img" />
         <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
-          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-          qui dolorem eum fugiat quo voluptas nulla pariatur?
+          Leur présence permet de concilier la protection de ce patrimoine
+          naturel avec l’accueil du public, en favorisant une approche
+          respectueuse des lieux.<br /><br />Au-delà de leur mission de gestion,
+          les Orpellières sont aussi un véritable espace de sensibilisation à
+          l’environnement. Des animations, visites guidées et ateliers
+          pédagogiques sont régulièrement proposés pour permettre à chacun de
+          découvrir la richesse de ces paysages et de mieux comprendre les
+          actions mises en place pour les protéger. Ainsi, les Orpellières sont
+          bien plus qu’un site naturel protégé : c’est un lieu vivant, où se
+          croisent nature, pédagogie et découverte, au service de la
+          préservation du littoral.
         </p>
       </div>
     </section>
@@ -140,6 +162,12 @@
       </div>
     </footer>
     <script>
+      function scrollToNextSection() {
+        document
+          .getElementById("a-propos")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
       window.addEventListener("scroll", function () {
         const header = document.querySelector("header");
         const nav = document.querySelector("nav");

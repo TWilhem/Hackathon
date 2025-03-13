@@ -18,23 +18,34 @@
     <header>
       <nav>
         <ul>
-          <li><a href="./actualite.html">Actualités</a></li>
-          <li><a href="./biodiversite.htm">Biodiversité</a></li>
+          <li>
+            <a href="./biodiversite.htm"
+              >Découverte de<br />
+              notre biodiversite</a
+            >
+          </li>
+          <li>
+            <a href="./documentation.html"
+              >Notre <br />
+              parcours
+            </a>
+          </li>
           <a href="./index.html"
             ><div class="logo"><img src="./assets/logo.png" alt="" /></div
           ></a>
+
           <li><a href="./galerie.html">Galerie</a></li>
-          <li><a href="./documentation.html">Observations</a></li>
+          <li><a href="./actualite.html">Actualités</a></li>
         </ul>
       </nav>
     </header>
     <section class="hero-banner">
       <img id="hero-photo" src="./assets/img-32.jpg" alt="" />
       <h1>Biodiversité</h1>
-      <div class="scroll-arrow">⬇</div>
+      <div class="scroll-arrow" onclick="scrollToNextSection()">⬇</div>
     </section>
 
-    <section class="Tableau"></section>
+    <section class="Tableau" id="tab"></section>
 
     <footer>
       <div class="img-logo">
@@ -62,6 +73,10 @@
     </footer>
   </body>
   <script>
+    function scrollToNextSection() {
+      document.getElementById("tab").scrollIntoView({ behavior: "smooth" });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       fetch("./docs/Archive/Info_Espece_03_2025.json")
         .then((response) => response.json())

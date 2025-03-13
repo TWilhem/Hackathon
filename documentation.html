@@ -30,24 +30,82 @@
     <header>
       <nav>
         <ul>
-          <li><a href="./actualite.html">Actualités</a></li>
-          <li><a href="./biodiversite.htm">Biodiversité</a></li>
+          <li>
+            <a href="./biodiversite.htm"
+              >Découverte de<br />
+              notre biodiversite</a
+            >
+          </li>
+          <li>
+            <a href="./documentation.html"
+              >Notre <br />
+              parcours
+            </a>
+          </li>
           <a href="./index.html"
             ><div class="logo"><img src="./assets/logo.png" alt="" /></div
           ></a>
+
           <li><a href="./galerie.html">Galerie</a></li>
-          <li><a href="./documentation.html">Observations</a></li>
+          <li><a href="./actualite.html">Actualités</a></li>
         </ul>
       </nav>
     </header>
     <section class="hero-banner">
       <img id="hero-photo" src="./assets/img-29.jpg" alt="" />
-      <h1>Observations</h1>
-      <div class="scroll-arrow">⬇</div>
+      <h1>Notre parcours</h1>
+      <div class="scroll-arrow" onclick="scrollToNextSection()">⬇</div>
     </section>
-    <section id="carte">
+    <section id="carte" id="nextSection">
       <h3>Carte</h3>
       <div id="viewerDiv" style="width: 100%; height: 600px"></div>
+
+      <div class="section-container">
+        <div class="hike-info">
+          <h3 class="hike-header">Randonnée aux Orpellières</h3>
+          <p>
+            Une balade dans un espace naturel exceptionnel, idéale en famille,
+            pour allier plaisirs de la plage et découverte de l'environnement.
+          </p>
+          <div class="hike-details">
+            <div class="hike-card">
+              <p>
+                <strong>Difficulté :</strong>
+                <span
+                  style="
+                    color: #007bff;
+                    background: #e0f2ff;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                  "
+                  >Facile</span
+                >
+              </p>
+            </div>
+            <div class="hike-card">
+              <p><strong>Distance :</strong> 4,13 km</p>
+              <p><strong>Durée :</strong> 01:00 h</p>
+            </div>
+            <div class="hike-card">
+              <p><strong>Évaluation :</strong></p>
+              <p>
+                Technique: ⭐⚪⚪⚪⚪ | Endurance: ⭐⭐⚪⚪⚪ | Paysage:
+                ⭐⭐⭐⭐⚪
+              </p>
+            </div>
+            <div class="hike-card">
+              <p><strong>Point de départ :</strong> Sérignan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="frequentation-container">
+          <h2 class="frequentation-title" style="text-align: center">
+            Fréquentation des Orpellieres
+          </h2>
+          <canvas id="frequentationChart"></canvas>
+        </div>
+      </div>
     </section>
     <div class="meteo-container">
       <h2 class="meteo-title">Tableau de bord météo</h2>
@@ -118,7 +176,7 @@
             <li><a href="./actualite.html">Actualités</a></li>
             <li><a href="./biodiversite.htm">Biodiversité</a></li>
             <li><a href="./galerie.html">Galerie</a></li>
-            <li><a href="./documentation.html">Observations</a></li>
+            <li><a href="./documentation.html">Notre parcours</a></li>
           </ul>
         </nav>
         <a href="./index.html"
@@ -136,6 +194,10 @@
     </footer>
 
     <script>
+      function scrollToNextSection() {
+        document.getElementById("carte").scrollIntoView({ behavior: "smooth" });
+      }
+
       window.addEventListener("scroll", function () {
         const header = document.querySelector("header");
         const nav = document.querySelector("nav");
@@ -455,6 +517,58 @@
             .getElementById(this.getAttribute("data-chart") + "Wrapper")
             .classList.add("active");
         });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("./docs/Archive/Analyse_Frequentation.json")
+          .then((response) => response.json())
+          .then((data) => {
+            let months = Object.keys(data);
+            let totalFrequentation = months.map((month) => {
+              return data[month].reduce(
+                (acc, entry) => acc + entry["Total"],
+                0
+              );
+            });
+
+            const ctx = document
+              .getElementById("frequentationChart")
+              .getContext("2d");
+            new Chart(ctx, {
+              type: "line",
+              data: {
+                labels: months,
+                datasets: [
+                  {
+                    label: "Total de fréquentation par mois",
+                    data: totalFrequentation,
+                    borderColor: "#ff6384",
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    fill: true,
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: "Nombre de visiteurs",
+                    },
+                  },
+                },
+              },
+            });
+          })
+          .catch((error) =>
+            console.error(
+              "Erreur de chargement des données de fréquentation :",
+              error
+            )
+          );
       });
     </script>
   </body>

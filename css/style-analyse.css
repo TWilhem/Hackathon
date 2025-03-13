@@ -9,6 +9,45 @@
   margin-bottom: 30px;
 }
 
+.section-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hike-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hike-header {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hike-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hike-card {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hike-card p {
+  margin: 5px 0;
+}
+
 .meteo-container {
   max-width: 900px;
   margin: auto;
