@@ -254,7 +254,7 @@
     "Août_2024": [
         {
             "Période": "Les Orpellieres Piétons IN",
-            "1 août  2024 – 31 août 2024": 2926,
+            "Total": 2926,
             "Moyenne journalière": 94,
             "Moyenne jours ouvrés": 93,
             "Moyenne jours de week-end": 98,
@@ -265,7 +265,7 @@
         },
         {
             "Période": "Les Orpellieres Piétons OUT",
-            "1 août  2024 – 31 août 2024": 2476,
+            "Total": 2476,
             "Moyenne journalière": 80,
             "Moyenne jours ouvrés": 83,
             "Moyenne jours de week-end": 72,
@@ -276,7 +276,7 @@
         },
         {
             "Période": "Les Orpellieres Vélos IN",
-            "1 août  2024 – 31 août 2024": 4785,
+            "Total": 4785,
             "Moyenne journalière": 154,
             "Moyenne jours ouvrés": 169,
             "Moyenne jours de week-end": 119,
@@ -287,7 +287,7 @@
         },
         {
             "Période": "Les Orpellieres Vélos OUT",
-            "1 août  2024 – 31 août 2024": 4475,
+            "Total": 4475,
             "Moyenne journalière": 144,
             "Moyenne jours ouvrés": 156,
             "Moyenne jours de week-end": 115,
@@ -298,7 +298,7 @@
         },
         {
             "Période": "Total",
-            "1 août  2024 – 31 août 2024": 14662,
+            "Total": 14662,
             "Moyenne journalière": 472,
             "Moyenne jours ouvrés": 501,
             "Moyenne jours de week-end": 404,
@@ -311,7 +311,7 @@
     "Septembre_2024": [
         {
             "Période": "Les Orpellieres Piétons IN",
-            "1 septembre 2024 – 31  septembre 2024": 2218,
+            "Total": 2218,
             "Moyenne journalière": 74,
             "Moyenne jours ouvrés": 79,
             "Moyenne jours de week-end": 62,
@@ -322,7 +322,7 @@
         },
         {
             "Période": "Les Orpellieres Piétons OUT",
-            "1 septembre 2024 – 31  septembre 2024": 2312,
+            "Total": 2312,
             "Moyenne journalière": 77,
             "Moyenne jours ouvrés": 80,
             "Moyenne jours de week-end": 71,
@@ -333,7 +333,7 @@
         },
         {
             "Période": "Les Orpellieres Vélos IN",
-            "1 septembre 2024 – 31  septembre 2024": 3736,
+            "Total": 3736,
             "Moyenne journalière": 125,
             "Moyenne jours ouvrés": 129,
             "Moyenne jours de week-end": 113,
@@ -344,7 +344,7 @@
         },
         {
             "Période": "Les Orpellieres Vélos OUT",
-            "1 septembre 2024 – 31  septembre 2024": 4579,
+            "Total": 4579,
             "Moyenne journalière": 153,
             "Moyenne jours ouvrés": 162,
             "Moyenne jours de week-end": 130,
@@ -355,7 +355,7 @@
         },
         {
             "Période": "Total",
-            "1 septembre 2024 – 31  septembre 2024": 12845,
+            "Total": 12845,
             "Moyenne journalière": 429,
             "Moyenne jours ouvrés": 450,
             "Moyenne jours de week-end": 376,
@@ -368,7 +368,7 @@
     "Octobre_2024": [
         {
             "Période": "Les Orpellieres Piétons IN",
-            "1  octobre   2024 – 31 octobre 2024": 591,
+            "Total": 591,
             "Moyenne journalière": 19,
             "Moyenne jours ouvrés": 19,
             "Moyenne jours de week-end": 20,
@@ -379,7 +379,7 @@
         },
         {
             "Période": "Les Orpellieres Piétons OUT",
-            "1  octobre   2024 – 31 octobre 2024": 863,
+            "Total": 863,
             "Moyenne journalière": 28,
             "Moyenne jours ouvrés": 28,
             "Moyenne jours de week-end": 26,
@@ -390,7 +390,7 @@
         },
         {
             "Période": "Les Orpellieres Vélos IN",
-            "1  octobre   2024 – 31 octobre 2024": 666,
+            "Total": 666,
             "Moyenne journalière": 21,
             "Moyenne jours ouvrés": 21,
             "Moyenne jours de week-end": 22,
@@ -401,7 +401,7 @@
         },
         {
             "Période": "Les Orpellieres Vélos OUT",
-            "1  octobre   2024 – 31 octobre 2024": 801,
+            "Total": 801,
             "Moyenne journalière": 26,
             "Moyenne jours ouvrés": 27,
             "Moyenne jours de week-end": 21,
@@ -412,7 +412,7 @@
         },
         {
             "Période": "Total",
-            "1  octobre   2024 – 31 octobre 2024": 2921,
+            "Total": 2921,
             "Moyenne journalière": 94,
             "Moyenne jours ouvrés": 96,
             "Moyenne jours de week-end": 90,
@@ -648,543 +648,6 @@
             "Jour de pointe": "sam. 1 février 2025",
             "Jour max. de la semaine": "samedi",
             "Total": 349
-        }
-    ],
-    "MARS_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "Moyenne journalière": 27,
-            "Moyenne jours ouvrés": 37,
-            "Moyenne jours de week-end": 11,
-            "Médiane journalière": 7,
-            "Comptage de pointe": 101,
-            "Jour de pointe": "mer. 27 mars 2024",
-            "Jour max. de la semaine": "mercredi",
-            "Total": 133
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "Moyenne journalière": 25,
-            "Moyenne jours ouvrés": 32,
-            "Moyenne jours de week-end": 13,
-            "Médiane journalière": 13,
-            "Comptage de pointe": 84,
-            "Jour de pointe": "mer. 27 mars 2024",
-            "Jour max. de la semaine": "mercredi",
-            "Total": 123
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "Moyenne journalière": 35,
-            "Moyenne jours ouvrés": 58,
-            "Moyenne jours de week-end": 2,
-            "Médiane journalière": 4,
-            "Comptage de pointe": 159,
-            "Jour de pointe": "mer. 27 mars 2024",
-            "Jour max. de la semaine": "mercredi",
-            "Total": 177
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "Moyenne journalière": 32,
-            "Moyenne jours ouvrés": 53,
-            "Moyenne jours de week-end": 2,
-            "Médiane journalière": 2,
-            "Comptage de pointe": 150,
-            "Jour de pointe": "mer. 27 mars 2024",
-            "Jour max. de la semaine": "mercredi",
-            "Total": 162
-        }
-    ],
-    "AVRIL_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "Moyenne journalière": 26,
-            "Moyenne jours ouvrés": 28,
-            "Moyenne jours de week-end": 21,
-            "Médiane journalière": 22,
-            "Comptage de pointe": 75,
-            "Jour de pointe": "mar. 2 avril 2024",
-            "Jour max. de la semaine": "mardi",
-            "Total": 791
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "Moyenne journalière": 29,
-            "Moyenne jours ouvrés": 32,
-            "Moyenne jours de week-end": 20,
-            "Médiane journalière": 24,
-            "Comptage de pointe": 61,
-            "Jour de pointe": "mar. 2 avril 2024",
-            "Jour max. de la semaine": "mardi",
-            "Total": 855
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "Moyenne journalière": 14,
-            "Moyenne jours ouvrés": 12,
-            "Moyenne jours de week-end": 20,
-            "Médiane journalière": 11,
-            "Comptage de pointe": 49,
-            "Jour de pointe": "dim. 14 avril 2024",
-            "Jour max. de la semaine": "dimanche",
-            "Total": 425
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "Moyenne journalière": 13,
-            "Moyenne jours ouvrés": 13,
-            "Moyenne jours de week-end": 11,
-            "Médiane journalière": 9,
-            "Comptage de pointe": 60,
-            "Jour de pointe": "mar. 30 avril 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 376
-        }
-    ],
-    "MAI_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "Moyenne journalière": 67,
-            "Moyenne jours ouvrés": 63,
-            "Moyenne jours de week-end": 77,
-            "Médiane journalière": 62,
-            "Comptage de pointe": 128,
-            "Jour de pointe": "dim. 26 mai 2024",
-            "Jour max. de la semaine": "dimanche",
-            "Total": 2073
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "Moyenne journalière": 86,
-            "Moyenne jours ouvrés": 84,
-            "Moyenne jours de week-end": 89,
-            "Médiane journalière": 92,
-            "Comptage de pointe": 162,
-            "Jour de pointe": "jeu. 30 mai 2024",
-            "Jour max. de la semaine": "jeudi",
-            "Total": 2658
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "Moyenne journalière": 121,
-            "Moyenne jours ouvrés": 115,
-            "Moyenne jours de week-end": 139,
-            "Médiane journalière": 117,
-            "Comptage de pointe": 226,
-            "Jour de pointe": "ven. 10 mai 2024",
-            "Jour max. de la semaine": "dimanche",
-            "Total": 3760
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "Moyenne journalière": 144,
-            "Moyenne jours ouvrés": 136,
-            "Moyenne jours de week-end": 167,
-            "Médiane journalière": 140,
-            "Comptage de pointe": 318,
-            "Jour de pointe": "ven. 10 mai 2024",
-            "Jour max. de la semaine": "dimanche",
-            "Total": 4476
-        }
-    ],
-    "JUIN_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "Moyenne journalière": 60,
-            "Moyenne jours ouvrés": 64,
-            "Moyenne jours de week-end": 52,
-            "Médiane journalière": 56,
-            "Comptage de pointe": 119,
-            "Jour de pointe": "ven. 28 juin 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 1802
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "Moyenne journalière": 71,
-            "Moyenne jours ouvrés": 77,
-            "Moyenne jours de week-end": 60,
-            "Médiane journalière": 65,
-            "Comptage de pointe": 123,
-            "Jour de pointe": "ven. 28 juin 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 2129
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "Moyenne journalière": 130,
-            "Moyenne jours ouvrés": 139,
-            "Moyenne jours de week-end": 112,
-            "Médiane journalière": 127,
-            "Comptage de pointe": 297,
-            "Jour de pointe": "lun. 17 juin 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 3894
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "Moyenne journalière": 157,
-            "Moyenne jours ouvrés": 166,
-            "Moyenne jours de week-end": 139,
-            "Médiane journalière": 149,
-            "Comptage de pointe": 282,
-            "Jour de pointe": "lun. 17 juin 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 4721
-        },
-        {
-            "Période": "Total",
-            "Moyenne journalière": 418,
-            "Moyenne jours ouvrés": 446,
-            "Moyenne jours de week-end": 363,
-            "Médiane journalière": 392,
-            "Comptage de pointe": 759,
-            "Jour de pointe": "lun. 17 juin 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 12546
-        }
-    ],
-    "JUILLET_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "Moyenne journalière": 159,
-            "Moyenne jours ouvrés": 169,
-            "Moyenne jours de week-end": 129,
-            "Médiane journalière": 80,
-            "Comptage de pointe": 185,
-            "Jour de pointe": "lun. 22 juillet 2024",
-            "Jour max. de la semaine": "lundi",
-            "Total": 4926
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "Moyenne journalière": 74,
-            "Moyenne jours ouvrés": 75,
-            "Moyenne jours de week-end": 72,
-            "Médiane journalière": 79,
-            "Comptage de pointe": 196,
-            "Jour de pointe": "lun. 22 juillet 2024",
-            "Jour max. de la semaine": "lundi",
-            "Total": 2303
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "Moyenne journalière": 150,
-            "Moyenne jours ouvrés": 159,
-            "Moyenne jours de week-end": 123,
-            "Médiane journalière": 141,
-            "Comptage de pointe": 308,
-            "Jour de pointe": "ven. 19 juillet 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 4653
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "Moyenne journalière": 147,
-            "Moyenne jours ouvrés": 159,
-            "Moyenne jours de week-end": 115,
-            "Médiane journalière": 138,
-            "Comptage de pointe": 303,
-            "Jour de pointe": "lun. 15 juillet 2024",
-            "Jour max. de la semaine": "lundi",
-            "Total": 4569
-        },
-        {
-            "Période": "Total",
-            "Moyenne journalière": 530,
-            "Moyenne jours ouvrés": 562,
-            "Moyenne jours de week-end": 439,
-            "Médiane journalière": 466,
-            "Comptage de pointe": 2150,
-            "Jour de pointe": "mar. 9 juillet 2024",
-            "Jour max. de la semaine": "mardi",
-            "Total": 16451
-        }
-    ],
-    "Août_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "1 août  2024 – 31 août 2024": 2926,
-            "Moyenne journalière": 94,
-            "Moyenne jours ouvrés": 93,
-            "Moyenne jours de week-end": 98,
-            "Médiane journalière": 105,
-            "Comptage de pointe": 323,
-            "Jour de pointe": "dim. 11 août 2024",
-            "Jour max. de la semaine": "dimanche"
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "1 août  2024 – 31 août 2024": 2476,
-            "Moyenne journalière": 80,
-            "Moyenne jours ouvrés": 83,
-            "Moyenne jours de week-end": 72,
-            "Médiane journalière": 90,
-            "Comptage de pointe": 218,
-            "Jour de pointe": "mer. 14 août 2024",
-            "Jour max. de la semaine": "mercredi"
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "1 août  2024 – 31 août 2024": 4785,
-            "Moyenne journalière": 154,
-            "Moyenne jours ouvrés": 169,
-            "Moyenne jours de week-end": 119,
-            "Médiane journalière": 164,
-            "Comptage de pointe": 209,
-            "Jour de pointe": "lun. 12 août 2024",
-            "Jour max. de la semaine": "lundi"
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "1 août  2024 – 31 août 2024": 4475,
-            "Moyenne journalière": 144,
-            "Moyenne jours ouvrés": 156,
-            "Moyenne jours de week-end": 115,
-            "Médiane journalière": 146,
-            "Comptage de pointe": 220,
-            "Jour de pointe": "mer. 14 août 2024",
-            "Jour max. de la semaine": "mercredi"
-        },
-        {
-            "Période": "Total",
-            "1 août  2024 – 31 août 2024": 14662,
-            "Moyenne journalière": 472,
-            "Moyenne jours ouvrés": 501,
-            "Moyenne jours de week-end": 404,
-            "Médiane journalière": 513,
-            "Comptage de pointe": 740,
-            "Jour de pointe": "mer. 14 août 2024",
-            "Jour max. de la semaine": "mercredi"
-        }
-    ],
-    "Septembre_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "1 septembre 2024 – 31  septembre 2024": 2218,
-            "Moyenne journalière": 74,
-            "Moyenne jours ouvrés": 79,
-            "Moyenne jours de week-end": 62,
-            "Médiane journalière": 68,
-            "Comptage de pointe": 120,
-            "Jour de pointe": "ven. 6 septembre 2024",
-            "Jour max. de la semaine": "mardi"
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "1 septembre 2024 – 31  septembre 2024": 2312,
-            "Moyenne journalière": 77,
-            "Moyenne jours ouvrés": 80,
-            "Moyenne jours de week-end": 71,
-            "Médiane journalière": 79,
-            "Comptage de pointe": 97,
-            "Jour de pointe": "ven. 20 septembre 2024",
-            "Jour max. de la semaine": "mercredi"
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "1 septembre 2024 – 31  septembre 2024": 3736,
-            "Moyenne journalière": 125,
-            "Moyenne jours ouvrés": 129,
-            "Moyenne jours de week-end": 113,
-            "Médiane journalière": 120,
-            "Comptage de pointe": 224,
-            "Jour de pointe": "ven. 6 septembre 2024",
-            "Jour max. de la semaine": "vendredi"
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "1 septembre 2024 – 31  septembre 2024": 4579,
-            "Moyenne journalière": 153,
-            "Moyenne jours ouvrés": 162,
-            "Moyenne jours de week-end": 130,
-            "Médiane journalière": 149,
-            "Comptage de pointe": 270,
-            "Jour de pointe": "mer. 25 septembre 2024",
-            "Jour max. de la semaine": "vendredi"
-        },
-        {
-            "Période": "Total",
-            "1 septembre 2024 – 31  septembre 2024": 12845,
-            "Moyenne journalière": 429,
-            "Moyenne jours ouvrés": 450,
-            "Moyenne jours de week-end": 376,
-            "Médiane journalière": 411,
-            "Comptage de pointe": 675,
-            "Jour de pointe": "mer. 14 août 2024",
-            "Jour max. de la semaine": "vendredi"
-        }
-    ],
-    "Octobre_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "1  octobre   2024 – 31 octobre 2024": 591,
-            "Moyenne journalière": 19,
-            "Moyenne jours ouvrés": 19,
-            "Moyenne jours de week-end": 20,
-            "Médiane journalière": 20,
-            "Comptage de pointe": 64,
-            "Jour de pointe": "mar. 22 octobre 2024",
-            "Jour max. de la semaine": "mardi"
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "1  octobre   2024 – 31 octobre 2024": 863,
-            "Moyenne journalière": 28,
-            "Moyenne jours ouvrés": 28,
-            "Moyenne jours de week-end": 26,
-            "Médiane journalière": 31,
-            "Comptage de pointe": 73,
-            "Jour de pointe": "jeu. 3 octobre 2024",
-            "Jour max. de la semaine": "mardi"
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "1  octobre   2024 – 31 octobre 2024": 666,
-            "Moyenne journalière": 21,
-            "Moyenne jours ouvrés": 21,
-            "Moyenne jours de week-end": 22,
-            "Médiane journalière": 12,
-            "Comptage de pointe": 127,
-            "Jour de pointe": "mar. 1 octobre 2024",
-            "Jour max. de la semaine": "mardi"
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "1  octobre   2024 – 31 octobre 2024": 801,
-            "Moyenne journalière": 26,
-            "Moyenne jours ouvrés": 27,
-            "Moyenne jours de week-end": 21,
-            "Médiane journalière": 10,
-            "Comptage de pointe": 216,
-            "Jour de pointe": "mar. 1 octobre 2024",
-            "Jour max. de la semaine": "mardi"
-        },
-        {
-            "Période": "Total",
-            "1  octobre   2024 – 31 octobre 2024": 2921,
-            "Moyenne journalière": 94,
-            "Moyenne jours ouvrés": 96,
-            "Moyenne jours de week-end": 90,
-            "Médiane journalière": 70,
-            "Comptage de pointe": 447,
-            "Jour de pointe": "mar. 1 octobre 2024",
-            "Jour max. de la semaine": "mardi"
-        }
-    ],
-    "Novembre_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "Moyenne journalière": 21,
-            "Moyenne jours ouvrés": 20,
-            "Moyenne jours de week-end": 22,
-            "Médiane journalière": 7,
-            "Comptage de pointe": 110,
-            "Jour de pointe": "mar. 12 novembre 2024",
-            "Jour max. de la semaine": "mardi",
-            "Total": 626
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "Moyenne journalière": 23,
-            "Moyenne jours ouvrés": 26,
-            "Moyenne jours de week-end": 16,
-            "Médiane journalière": 11,
-            "Comptage de pointe": 74,
-            "Jour de pointe": "jeu. 14 novembre 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 699
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "Moyenne journalière": 7,
-            "Moyenne jours ouvrés": 6,
-            "Moyenne jours de week-end": 10,
-            "Médiane journalière": 5,
-            "Comptage de pointe": 22,
-            "Jour de pointe": "sam. 2 novembre 2024",
-            "Jour max. de la semaine": "dimanche",
-            "Total": 215
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "Moyenne journalière": 5,
-            "Moyenne jours ouvrés": 4,
-            "Moyenne jours de week-end": 7,
-            "Médiane journalière": 3,
-            "Comptage de pointe": 15,
-            "Jour de pointe": "dim. 10 novembre 2024",
-            "Jour max. de la semaine": "dimanche",
-            "Total": 157
-        },
-        {
-            "Période": "Total",
-            "Moyenne journalière": 57,
-            "Moyenne jours ouvrés": 57,
-            "Moyenne jours de week-end": 55,
-            "Médiane journalière": 34,
-            "Comptage de pointe": 173,
-            "Jour de pointe": "jeu. 14 novembre 2024",
-            "Jour max. de la semaine": "mardi",
-            "Total": 1697
-        }
-    ],
-    "Décembre_2025": [
-        {
-            "Période": "Les Orpellieres Piétons IN",
-            "Moyenne journalière": 12,
-            "Moyenne jours ouvrés": 11,
-            "Moyenne jours de week-end": 12,
-            "Médiane journalière": 9,
-            "Comptage de pointe": 36,
-            "Jour de pointe": "ven. 27 décembre 2024",
-            "Jour max. de la semaine": "jeudi",
-            "Total": 362
-        },
-        {
-            "Période": "Les Orpellieres Piétons OUT",
-            "Moyenne journalière": 19,
-            "Moyenne jours ouvrés": 20,
-            "Moyenne jours de week-end": 15,
-            "Médiane journalière": 14,
-            "Comptage de pointe": 45,
-            "Jour de pointe": "ven. 6 décembre 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 587
-        },
-        {
-            "Période": "Les Orpellieres Vélos IN",
-            "Moyenne journalière": 4,
-            "Moyenne jours ouvrés": 5,
-            "Moyenne jours de week-end": 4,
-            "Médiane journalière": 4,
-            "Comptage de pointe": 16,
-            "Jour de pointe": "jeu. 19 décembre 2024",
-            "Jour max. de la semaine": "jeudi",
-            "Total": 136
-        },
-        {
-            "Période": "Les Orpellieres Vélos OUT",
-            "Moyenne journalière": 4,
-            "Moyenne jours ouvrés": 4,
-            "Moyenne jours de week-end": 3,
-            "Médiane journalière": 2,
-            "Comptage de pointe": 15,
-            "Jour de pointe": "ven. 27 décembre 2024",
-            "Jour max. de la semaine": "vendredi",
-            "Total": 115
-        },
-        {
-            "Période": "Total",
-            "Moyenne journalière": 39,
-            "Moyenne jours ouvrés": 40,
-            "Moyenne jours de week-end": 35,
-            "Médiane journalière": 37,
-            "Comptage de pointe": 87,
-            "Jour de pointe": "jeu. 12 décembre 2024",
-            "Jour max. de la semaine": "jeudi",
-            "Total": 1200
         }
     ]
 }
