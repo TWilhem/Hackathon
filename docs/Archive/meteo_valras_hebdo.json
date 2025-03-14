@@ -148,5 +148,15 @@
     "rafales_kmh": 23.8,
     "direction_vent": "O",
     "conditions": "Ciel dégagé"
+  },
+  {
+    "timestamp": "2025-03-14 01:18:28",
+    "temperature": 7.6,
+    "ressenti": 4.3,
+    "precipitation": 0.0,
+    "vent_kmh": 10.7,
+    "rafales_kmh": 21.2,
+    "direction_vent": "O",
+    "conditions": "Nuageux"
   }
 ]
