@@ -328,5 +328,15 @@
     "rafales_kmh": 29.9,
     "direction_vent": "O",
     "conditions": "Nuageux"
+  },
+  {
+    "timestamp": "2025-03-14 11:14:30",
+    "temperature": 9.4,
+    "ressenti": 7.7,
+    "precipitation": 0.0,
+    "vent_kmh": 8.3,
+    "rafales_kmh": 31.7,
+    "direction_vent": "N",
+    "conditions": "Nuageux"
   }
 ]
